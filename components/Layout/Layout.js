@@ -11,7 +11,7 @@ export const Layout = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <div className="container">{children}</div>
+      <div className="container mx-auto">{children}</div>
       <Footer />
     </>
   );

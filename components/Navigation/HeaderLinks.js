@@ -1,5 +1,5 @@
 import React from "react";
 
 export const HeaderLinks = () => {
-  return <div>this is a navbar</div>;
+  return <div className="container mx-auto">this is a navbar</div>;
 };
