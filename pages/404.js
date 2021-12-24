@@ -1,11 +1,11 @@
 import { Layout } from "../components/Layout/Layout";
 import { getPageNavigation } from "../lib/api";
 
-export default function Home({ navigation }) {
+export default function NotFound({ navigation }) {
   return (
     <Layout {...navigation}>
-      <div className="container mx-auto">
-        <p>hello from the homepage</p>
+      <div className="container">
+        <p>Sorry. We could not find that page. :-/</p>
       </div>
     </Layout>
   );
