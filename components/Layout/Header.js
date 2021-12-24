@@ -1,9 +1,9 @@
 import { HeaderLinks } from "../Navigation/HeaderLinks";
 
-export const Header = () => {
+export const Header = ({ items }) => {
   return (
     <div>
-      <HeaderLinks />
+      <HeaderLinks links={items} />
     </div>
   );
 };

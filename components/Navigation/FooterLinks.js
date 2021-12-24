@@ -1,5 +1,17 @@
-import React from "react";
+import Link from "next/link";
 
-export const FooterLinks = () => {
-  return <div className="container mx-auto">links in the footer</div>;
+export const FooterLinks = ({ links }) => {
+  return (
+    <div className="container mx-auto">
+      <ul>
+        {links?.map((link) => (
+          <li key={`link-${link.text}`}>
+            <Link href={link.url}>
+              <a>{link.text}</a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };

@@ -1,9 +1,9 @@
 import { FooterLinks } from "../Navigation/FooterLinks";
 
-export const Footer = () => {
+export const Footer = ({ items }) => {
   return (
     <div>
-      <FooterLinks />
+      <FooterLinks links={items} />
     </div>
   );
 };

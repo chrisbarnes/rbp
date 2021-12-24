@@ -1,5 +1,17 @@
-import React from "react";
+import Link from "next/link";
 
-export const HeaderLinks = () => {
-  return <div className="container mx-auto">this is a navbar</div>;
+export const HeaderLinks = ({ links }) => {
+  return (
+    <div className="container mx-auto">
+      <ul>
+        {links?.map((link) => (
+          <li key={`link-${link.text}`}>
+            <Link href={link.url}>
+              <a>{link.text}</a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };

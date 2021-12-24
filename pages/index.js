@@ -1,7 +1,23 @@
-export default function Home() {
+import { Layout } from "../components/Layout/Layout";
+import { getPageNavigation } from "../lib/api";
+
+export default function Home({ navigation }) {
   return (
-    <main className="container">
-      <p>hello from the homepage</p>
-    </main>
+    <Layout {...navigation}>
+      <div className="container">
+        <p>hello from the homepage</p>
+      </div>
+    </Layout>
   );
+}
+
+export async function getStaticProps({ params, preview = false }) {
+  const navigation = await getPageNavigation();
+
+  return {
+    props: {
+      preview,
+      navigation: navigation ? navigation : null,
+    },
+  };
 }
