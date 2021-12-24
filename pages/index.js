@@ -4,7 +4,7 @@ import { getPageNavigation } from "../lib/api";
 export default function Home({ navigation }) {
   return (
     <Layout {...navigation}>
-      <div className="container">
+      <div className="container mx-auto">
         <p>hello from the homepage</p>
       </div>
     </Layout>
