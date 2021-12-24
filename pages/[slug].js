@@ -4,8 +4,8 @@ import { getPages, getPageBySlug, getPageNavigation } from "../lib/api";
 export default function Page({ page, navigation }) {
   return (
     <Layout {...navigation}>
-      <h1>{page?.fields?.title}</h1>
-      <p>hello from a page</p>
+      {page && <h1>{page?.fields?.title}</h1>}
+      {page && <p>hello from a page</p>}
     </Layout>
   );
 }
@@ -13,6 +13,12 @@ export default function Page({ page, navigation }) {
 export async function getStaticProps({ params, preview = false }) {
   const page = await getPageBySlug(params.slug);
   const navigation = await getPageNavigation();
+
+  if (!page) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
