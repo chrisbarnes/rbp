@@ -1,11 +1,12 @@
 import { Layout } from "../components/Layout/Layout";
 import { getPages, getPageBySlug, getPageNavigation } from "../lib/api";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 export default function Page({ page, navigation }) {
   return (
     <Layout {...navigation}>
       {page && <h1>{page?.fields?.title}</h1>}
-      {page && <p>hello from a page</p>}
+      {page && documentToReactComponents(page?.fields?.mainContent)}
     </Layout>
   );
 }
