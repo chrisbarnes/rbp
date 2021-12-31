@@ -1,9 +1,9 @@
 import { Layout } from "../components/Layout/Layout";
 import { getPageNavigation } from "../lib/api";
 
-export default function Home({ navigation }) {
+export default function Home({ navigation, preview }) {
   return (
-    <Layout {...navigation}>
+    <Layout {...navigation} isPreview={preview}>
       <div className="container mx-auto">
         <p>hello from the homepage</p>
       </div>
