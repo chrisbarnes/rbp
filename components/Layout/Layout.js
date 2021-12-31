@@ -1,8 +1,9 @@
 import Head from "next/head";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { PreviewBanner } from "../Preview/PreviewBanner";
 
-export const Layout = ({ children, header, footer }) => {
+export const Layout = ({ children, header, footer, isPreview }) => {
   return (
     <>
       <Head>
@@ -16,6 +17,7 @@ export const Layout = ({ children, header, footer }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header items={header} />
+      {isPreview && <PreviewBanner />}
       <main>{children}</main>
       <Footer items={footer} />
     </>

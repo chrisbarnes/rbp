@@ -2,9 +2,9 @@ import { Layout } from "../components/Layout/Layout";
 import { TaveForm } from "../components/Forms/TaveForm";
 import { getPageNavigation } from "../lib/api";
 
-export default function ContactPage({ page, navigation }) {
+export default function ContactPage({ page, navigation, preview }) {
   return (
-    <Layout {...navigation}>
+    <Layout {...navigation} isPreview={preview}>
       {page && <h1>Contact</h1>}
       <TaveForm />
     </Layout>
