@@ -5,7 +5,12 @@ import Image from "next/image";
 
 export default function Page({ page, navigation, preview }) {
   return (
-    <Layout {...navigation} isPreview={preview}>
+    <Layout
+      {...navigation}
+      isPreview={preview}
+      seoDescription={page?.fields?.seoDescription}
+      seoTitle={page?.fields?.seoTitle}
+    >
       {page && page?.fields?.heroImage && (
         <Image
           alt={page?.fields?.heroImage?.fields?.title}
