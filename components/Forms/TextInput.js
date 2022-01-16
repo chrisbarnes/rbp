@@ -1,20 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classNames from "clsx";
+import { FieldContainer } from "./FieldContainer";
 
 export const TextInput = React.forwardRef((props, ref) => {
-  const divClasses = classNames({
-    "px-2": true,
-    "pt-2": true,
-    "pb-4": true,
-    "border-2": true,
-    "border-slate-700": !props.isError,
-    "border-red-500": props.isError,
-    relative: true,
-  });
-
   return (
-    <div className={divClasses}>
+    <FieldContainer isError={props.isError}>
       <label className="block uppercase text-xs" htmlFor={props.id}>
         {props.label}
       </label>
@@ -30,7 +20,7 @@ export const TextInput = React.forwardRef((props, ref) => {
           {props.error}
         </span>
       )}
-    </div>
+    </FieldContainer>
   );
 });
 
