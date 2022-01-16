@@ -5,21 +5,29 @@ const SelectStory = {
   component: SelectComponent,
 };
 
-const selectProps = {
-  id: "testSelect",
-  label: "State",
-  options: [
-    {
-      name: "PA",
-      value: "PA",
-    },
-    {
-      name: "CA",
-      value: "CA",
-    },
-  ],
-};
-
 export default SelectStory;
 
-export const Select = () => <SelectComponent {...selectProps} />;
+const Template = (args) => <SelectComponent {...args} />;
+
+export const Select = Template.bind({});
+
+Select.args = {
+  id: "testSelect",
+  label: "Session Type",
+  options: [
+    {
+      name: "Newborn Portraits",
+      value: "Newborn",
+    },
+    {
+      name: "Maternity Portraits",
+      value: "Maternity",
+    },
+    {
+      name: "Family Portraits",
+      value: "Family",
+    },
+  ],
+  isError: false,
+  error: "Please select a session type",
+};
