@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { FieldContainer } from "./FieldContainer";
+import { FieldLabel } from "./FieldLabel";
+import { FieldError } from "./FieldError";
 
 export const TextInput = React.forwardRef((props, ref) => {
   return (
     <FieldContainer isError={props.isError}>
-      <label className="block uppercase text-xs" htmlFor={props.id}>
-        {props.label}
-      </label>
+      <FieldLabel id={props.id} text={props.label} />
       <input
         className="focus:outline-none"
         id={props.id}
@@ -15,11 +15,7 @@ export const TextInput = React.forwardRef((props, ref) => {
         ref={ref}
         {...props}
       />
-      {props.isError && (
-        <span className="block text-red-500 text-xs absolute left-2 bottom-1">
-          {props.error}
-        </span>
-      )}
+      {props.isError && <FieldError error={props.error} />}
     </FieldContainer>
   );
 });
