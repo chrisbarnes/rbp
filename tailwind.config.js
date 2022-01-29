@@ -5,6 +5,10 @@ module.exports = {
     "./public/index.html",
   ],
   theme: {
+    fontFamily: {
+      sans: ["nobel", "sans-serif"],
+      serif: ["adobe-garamond-pro", "serif"],
+    },
     extend: {},
   },
   plugins: [],
