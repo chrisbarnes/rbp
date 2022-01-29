@@ -13,7 +13,6 @@ export const Layout = ({ children, header, footer }) => {
           name="description"
           content="Custom photography for discerning parents that want to remember the beauty of their growing family. Serving the Greater Philadelphia region"
         />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header items={header} />
       <main>{children}</main>
