@@ -3,9 +3,14 @@ import { getPages, getPageBySlug, getPageNavigation } from "../lib/api";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
 
-export default function Page({ page, navigation }) {
+export default function Page({ page, navigation, preview }) {
   return (
-    <Layout {...navigation}>
+    <Layout
+      {...navigation}
+      isPreview={preview}
+      seoDescription={page?.fields?.seoDescription}
+      seoTitle={page?.fields?.seoTitle}
+    >
       {page && page?.fields?.heroImage && (
         <Image
           alt={page?.fields?.heroImage?.fields?.title}
@@ -25,8 +30,10 @@ export default function Page({ page, navigation }) {
 }
 
 export async function getStaticProps({ params, preview = false }) {
-  const page = await getPageBySlug(params.slug);
-  const navigation = await getPageNavigation();
+  const page = await getPageBySlug(params.slug, preview);
+  const navigation = await getPageNavigation(preview);
+
+  console.log("page", page);
 
   if (!page) {
     return {
@@ -43,8 +50,8 @@ export async function getStaticProps({ params, preview = false }) {
   };
 }
 
-export async function getStaticPaths() {
-  const allPages = await getPages();
+export async function getStaticPaths({ preview = false }) {
+  const allPages = await getPages(preview);
 
   return {
     paths: allPages?.map(({ slug }) => `/${slug}`) ?? [],
