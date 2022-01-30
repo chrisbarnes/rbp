@@ -13,8 +13,12 @@ const FooterLinksStory = {
 
 const headerLinksProps = {
   links: [
-    { text: "Link 1", url: "/link1" },
-    { text: "Link 2", url: "/link2" },
+    { text: "About", url: "/link1" },
+    { text: "Portfolio", url: "/link2" },
+    { text: "Clients for Life", url: "/link2" },
+    { text: "Reviews", url: "/link2" },
+    { text: "Blog", url: "/link2" },
+    { text: "Contact", url: "/link2" },
   ],
 };
 
