@@ -11,20 +11,20 @@ export const HeaderLinks = ({ links }) => {
 
   return (
     <nav className="bg-purple-600/80 focus-within:bg-white transition-colors">
-      <div className="container mx-auto flex justify-around items-center">
-        <div className="grow basis-60 flex justify-start">
-          {leftSideLinks?.map((link) => (
-            <HeaderLink key={link.text} link={link} />
-          ))}
-        </div>
-        <div className="grow">
+      <div className="container mx-auto md:flex justify-around items-center">
+        <div className="lg:grow md:order-2">
           <Link href="/">
-            <a className="block w-56 m-auto px-3 py-5">
+            <a className="block w-40 lg:w-56 m-auto px-3 py-5">
               <HeaderLogo />
             </a>
           </Link>
         </div>
-        <div className="grow basis-60 flex justify-end">
+        <div className="grow basis-60 flex justify-start md:order-1">
+          {leftSideLinks?.map((link) => (
+            <HeaderLink key={link.text} link={link} />
+          ))}
+        </div>
+        <div className="grow basis-60 flex justify-end md:order-3">
           {rightSideLinks?.map((link) => (
             <HeaderLink key={link.text} link={link} />
           ))}
