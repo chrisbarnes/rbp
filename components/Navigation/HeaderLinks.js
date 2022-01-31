@@ -3,6 +3,10 @@ import { HeaderLogo } from "./HeaderLogo";
 import { HeaderLink } from "./HeaderLink";
 
 export const HeaderLinks = ({ links }) => {
+  if (!links) {
+    return null;
+  }
+
   // Find the "middle" of the links array and split it into a left and right links
   // so we can render the logo in the center
   const slicePoint = Math.ceil(links.length / 2);
