@@ -14,7 +14,7 @@ export const HeaderLinks = ({ links }) => {
   const rightSideLinks = links.slice(slicePoint, links.length);
 
   return (
-    <nav className="bg-purple/40 hover:bg-white focus-within:bg-white transition-colors">
+    <nav className="bg-lightPurple/60 hover:bg-white focus-within:bg-white transition-colors">
       <div className="container mx-auto md:flex justify-around items-center">
         <div className="lg:grow md:order-2">
           <Link href="/">
