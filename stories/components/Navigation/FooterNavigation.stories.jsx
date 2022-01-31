@@ -15,6 +15,6 @@ FooterLinks.args = {
   links: [
     { text: "About", url: "/link1" },
     { text: "Portfolio", url: "/link2" },
-    { text: "Clients for Life", url: "/link2" },
+    { text: "Clients for Life", url: "/link3" },
   ],
 };
