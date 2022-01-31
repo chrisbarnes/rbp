@@ -10,6 +10,7 @@ export const Layout = ({
   isPreview,
   seoTitle,
   seoDescription,
+  headerImage,
 }) => {
   return (
     <>
@@ -22,7 +23,7 @@ export const Layout = ({
         {seoDescription && <meta name="description" content={seoDescription} />}
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header items={header} />
+      <Header items={header} image={headerImage} />
       {isPreview && <PreviewBanner />}
       <main>{children}</main>
       <Footer items={footer} />
