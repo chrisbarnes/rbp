@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const FooterLinks = ({ links }) => {
   return (
-    <ul className="justify-center font-sans flex">
+    <ul className="justify-center font-sans flex flex-wrap">
       {links?.map((link) => (
         <li key={`link-${link.text}`}>
           <Link href={link.url}>

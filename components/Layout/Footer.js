@@ -1,5 +1,5 @@
 import { FooterLinks } from "../Navigation/FooterLinks";
-import { FooterLogo } from "./FooterLogo";
+import { FooterLogo } from "../Navigation/FooterLogo";
 
 export const Footer = ({ items }) => {
   return (
