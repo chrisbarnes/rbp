@@ -12,6 +12,11 @@ const Template = (args) => <HeaderComponent {...args} />;
 export const Header = Template.bind({});
 
 Header.args = {
+  isStorybook: true,
+  image: {
+    url: "images/street-family.jpg",
+    title: "Test Image",
+  },
   items: [
     { text: "About", url: "/link1" },
     { text: "Portfolio", url: "/link2" },
