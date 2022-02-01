@@ -1,21 +1,30 @@
 import Head from "next/head";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { PreviewBanner } from "../Preview/PreviewBanner";
 
-export const Layout = ({ children, header, footer }) => {
+export const Layout = ({
+  children,
+  header,
+  footer,
+  isPreview,
+  seoTitle,
+  seoDescription,
+  headerImage,
+}) => {
   return (
     <>
       <Head>
         <title>
-          Rae Barnes | Philadelphia Family and Newborn Lifestyle Photography
+          {seoTitle
+            ? seoTitle
+            : "Rae Barnes Photography | Philadelphia Family and Newborn Lifestyle Photography"}
         </title>
-        <meta
-          name="description"
-          content="Custom photography for discerning parents that want to remember the beauty of their growing family. Serving the Greater Philadelphia region"
-        />
+        {seoDescription && <meta name="description" content={seoDescription} />}
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header items={header} />
+      <Header items={header} image={headerImage} />
+      {isPreview && <PreviewBanner />}
       <main>{children}</main>
       <Footer items={footer} />
     </>

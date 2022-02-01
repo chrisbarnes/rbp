@@ -1,22 +1,34 @@
 import { Layout } from "../components/Layout/Layout";
-import { getPageNavigation } from "../lib/api";
+import { getPageNavigation, getHomepage } from "../lib/api";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import Image from "next/image";
 
-export default function Home({ navigation }) {
+export default function Home({ page, navigation, preview }) {
   return (
-    <Layout {...navigation}>
-      <div className="container mx-auto">
-        <p>hello from the homepage</p>
-      </div>
+    <Layout
+      {...navigation}
+      isPreview={preview}
+      seoDescription={page?.fields?.seoDescription}
+      seoTitle={page?.fields?.seoTitle}
+      headerImage={{
+        url: page?.fields?.heroImage?.fields?.file?.url,
+        title: page?.fields?.heroImage?.fields?.title,
+      }}
+    >
+      {page && <h1>{page?.fields?.title}</h1>}
+      {page && documentToReactComponents(page?.fields?.mainContent)}
     </Layout>
   );
 }
 
 export async function getStaticProps({ params, preview = false }) {
+  const page = await getHomepage(preview);
   const navigation = await getPageNavigation();
 
   return {
     props: {
       preview,
+      page: page ? page : null,
       navigation: navigation ? navigation : null,
     },
   };
