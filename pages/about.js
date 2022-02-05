@@ -2,8 +2,24 @@ import { Layout } from "../components/Layout/Layout";
 import { getPageBySlug, getPageNavigation } from "../lib/api";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { SectionIntro } from "../components/Typography/SectionIntro";
+import { JumpLinks } from "../components/Navigation/JumpLinks";
 
 export default function Page({ page, navigation, preview }) {
+  const jumpLinks = [
+    {
+      text: "About Rae",
+      section: "about-rae",
+    },
+    {
+      text: "About the Experience",
+      section: "about-experience",
+    },
+    {
+      text: "About Heirloom Artwork",
+      section: "about-artwork",
+    },
+  ];
+
   return (
     <Layout
       {...navigation}
@@ -20,7 +36,7 @@ export default function Page({ page, navigation, preview }) {
           <SectionIntro heading={page?.fields?.title} headingType="h1">
             {documentToReactComponents(page?.fields?.mainContent)}
           </SectionIntro>
-          <p>jump links here</p>
+          <JumpLinks links={jumpLinks} />
           <p>image callout left</p>
           <p>complex content section</p>
           <p>values section</p>

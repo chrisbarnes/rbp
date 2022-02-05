@@ -13,6 +13,8 @@ module.exports = {
       darkPurple: "#5D3754",
       grayPurple: "#f8f1f8",
       lightPurple: "#ccaed0",
+      plum: "#8E3A80",
+      lavender: "#E7D3E6",
     },
     fontFamily: {
       sans: ["nobel", "sans-serif"],
