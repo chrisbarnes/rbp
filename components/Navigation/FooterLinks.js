@@ -6,7 +6,9 @@ export const FooterLinks = ({ links }) => {
       {links?.map((link) => (
         <li key={`link-${link.text}`}>
           <Link href={link.url}>
-            <a className="px-2 py-1 uppercase text-xs">{link.text}</a>
+            <a className="px-2 py-1 uppercase text-xs no-underline">
+              {link.text}
+            </a>
           </Link>{" "}
           |
         </li>

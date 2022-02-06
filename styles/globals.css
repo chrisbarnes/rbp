@@ -21,3 +21,15 @@ h2 {
   background-size: 176px 2px;
   background-position: center bottom;
 }
+
+h3 {
+  @apply text-green text-4xl;
+}
+
+p {
+  @apply mb-12 text-darkPurple;
+}
+
+a {
+  @apply underline;
+}
