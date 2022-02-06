@@ -15,6 +15,7 @@ module.exports = {
       lightPurple: "#ccaed0",
       plum: "#8E3A80",
       lavender: "#E7D3E6",
+      green: "#67823A",
     },
     fontFamily: {
       sans: ["nobel", "sans-serif"],
