@@ -5,7 +5,7 @@ export const Header = ({ items, image, isStorybook }) => {
   return (
     <header className="mb-14">
       <div className="relative">
-        <div className="fixed top-0 w-full z-10">
+        <div className="fixed top-0 w-full max-w-7xl z-10">
           <HeaderLinks links={items} />
         </div>
         <div className="w-full h-screen overflow-hidden">
