@@ -3,6 +3,7 @@ import { getPageBySlug, getPageNavigation } from "../lib/api";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { SectionIntro } from "../components/Typography/SectionIntro";
 import { JumpLinks } from "../components/Navigation/JumpLinks";
+import { ImageCallout } from "../components/Typography/ImageCallout";
 
 export default function Page({ page, navigation, preview }) {
   const jumpLinks = [
@@ -37,12 +38,26 @@ export default function Page({ page, navigation, preview }) {
             {documentToReactComponents(page?.fields?.mainContent)}
           </SectionIntro>
           <JumpLinks links={jumpLinks} />
-          <p>image callout left</p>
-          <p>complex content section</p>
+          <ImageCallout
+            content={page?.fields?.imageCalloutContent}
+            image={{
+              url: page?.fields?.imageCalloutImage?.fields?.file?.url,
+              title: page?.fields?.imageCalloutImage?.fields?.title,
+            }}
+          />
+          <section id="about-rae">
+            <p>complex content section</p>
+          </section>
           <p>values section</p>
-          <SectionIntro heading="About the Experience" headingType="h2">
-            <p>about the experience text goes here</p>
-          </SectionIntro>
+          <section id="about-experience">
+            <SectionIntro
+              id="about-experience"
+              heading="About the Experience"
+              headingType="h2"
+            >
+              <p>about the experience text goes here</p>
+            </SectionIntro>
+          </section>
         </>
       )}
     </Layout>
