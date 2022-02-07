@@ -23,7 +23,7 @@ h2 {
 }
 
 h3 {
-  @apply text-green text-4xl;
+  @apply text-green text-4xl mb-8;
 }
 
 p {
