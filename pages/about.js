@@ -113,7 +113,7 @@ export default function Page({ page, navigation, preview }) {
               heading="About the Experience"
               headingType="h2"
             >
-              <p>about the experience text goes here</p>
+              <ContentfulRichText content={page?.fields?.tertiaryContent} />
             </SectionIntro>
           </section>
         </>
