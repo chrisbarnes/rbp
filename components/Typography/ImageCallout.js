@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { ContentfulRichText } from "./ContentfulRichText";
 
 export const ImageCallout = ({ image, content }) => {
   // Force webp as the default image format here
@@ -8,21 +8,26 @@ export const ImageCallout = ({ image, content }) => {
   // Use a super low quality jpg as the blur data url
   let blurSrc = `https:${image.url}?fm=jpg&q=1`;
 
+  const p = (node, children) => (
+    <p className="text-2xl leading-10">{children}</p>
+  );
+
   return (
     <section className="flex">
-      <div className="basis-7/12">
+      <div className="basis-7/12 relative">
         <Image
+          className="h-full"
           alt={image.title}
           src={imageSrc}
-          layout="responsive"
-          width={726}
-          height={484}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
           placeholder="blur"
           blurDataURL={blurSrc}
         />
       </div>
       <div className="basis-5/12 p-16 bg-lavender/30">
-        {documentToReactComponents(content)}
+        <ContentfulRichText content={content} altParagraph={p} />
       </div>
     </section>
   );
