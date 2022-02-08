@@ -8,6 +8,7 @@ import { ImageCallout } from "../components/Typography/ImageCallout";
 import { ContentfulRichText } from "../components/Typography/ContentfulRichText";
 import { Button } from "../components/Button/Button";
 import { CalloutBoxes } from "../components/Typography/CalloutBoxes";
+import { YouTubeVideo } from "../components/Video/YouTubeVideo";
 
 export default function Page({ page, navigation, preview }) {
   const jumpLinks = [
@@ -107,7 +108,7 @@ export default function Page({ page, navigation, preview }) {
             </div>
           </section>
           <CalloutBoxes items={values} />
-          <section id="about-experience">
+          <section id="about-experience" className="mb-20">
             <SectionIntro
               id="about-experience"
               heading="About the Experience"
@@ -116,6 +117,9 @@ export default function Page({ page, navigation, preview }) {
               <ContentfulRichText content={page?.fields?.tertiaryContent} />
             </SectionIntro>
           </section>
+          <div className="mb-16">
+            <YouTubeVideo videoId="Pq8GXD-G8VA" />
+          </div>
         </>
       )}
     </Layout>
