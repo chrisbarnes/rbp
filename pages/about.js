@@ -9,6 +9,7 @@ import { ContentfulRichText } from "../components/Typography/ContentfulRichText"
 import { Button } from "../components/Button/Button";
 import { CalloutBoxes } from "../components/Typography/CalloutBoxes";
 import { YouTubeVideo } from "../components/Video/YouTubeVideo";
+import { Process } from "../components/Typography/Process";
 
 export default function Page({ page, navigation, preview }) {
   const jumpLinks = [
@@ -41,6 +42,53 @@ export default function Page({ page, navigation, preview }) {
       heading: "Your family matters to me",
       description:
         "My calendar is limited so that I can best serve each and every family that commissions me to photograph them.",
+    },
+  ];
+
+  const processSteps = [
+    {
+      heading: "The Planning",
+      description:
+        "Once you have booked, we will set up a time 4-6 weeks before your session to plan.  This can be done in your home or over Zoom. During this time, we chat about what to wear, what you might want to order, and what we can expect from each other during the session.",
+      image: {
+        title: "test image",
+        url: "/images/street-family.jpg",
+        width: "380px",
+        height: "570px",
+      },
+    },
+    {
+      heading: "The Session",
+      description:
+        "On the day of the session, you just have to show up dressed and fed (no hangry toddlers please), and we'll take it from there. Don't worry if everything isn't perfect, that's real life. We will do everything we can to keep everyone relaxed and having fun.",
+      image: {
+        title: "test image",
+        url: "/images/street-family.jpg",
+        width: "380px",
+        height: "570px",
+      },
+    },
+    {
+      heading: "The Ordering",
+      description:
+        "Within a week of your session, we will have your ordering appointment. This is when you'll be able to see the proofs and purchase what you love most. Since we do not offer online ordering upfront, all decision makers should be present.",
+      image: {
+        title: "test image",
+        url: "/images/street-family.jpg",
+        width: "380px",
+        height: "570px",
+      },
+    },
+    {
+      heading: "The Delivery",
+      description:
+        "Your order is custom and handmade. It may take 6-10 weeks to complete, but we promise it is worth the wait. All wall galleries and large wall art includes complimentary and professional installation for you.",
+      image: {
+        title: "test image",
+        url: "/images/street-family.jpg",
+        width: "718px",
+        height: "478px",
+      },
     },
   ];
 
@@ -117,9 +165,10 @@ export default function Page({ page, navigation, preview }) {
               <ContentfulRichText content={page?.fields?.tertiaryContent} />
             </SectionIntro>
           </section>
-          <div className="mb-16">
+          <div className="mb-24">
             <YouTubeVideo videoId="Pq8GXD-G8VA" />
           </div>
+          <Process steps={processSteps} />
         </>
       )}
     </Layout>
