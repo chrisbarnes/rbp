@@ -1,0 +1,29 @@
+.wrap {
+  @apply bg-darkerBlue py-16 text-center text-lavender relative;
+}
+
+.wrap::before,
+.wrap::after {
+  @apply absolute bg-cover bg-left-top;
+  content: "";
+  width: 96px;
+  height: 97px;
+  background-image: url("../../public/images/quote.svg");
+}
+
+.wrap::before {
+  @apply top-0 left-6;
+}
+
+.wrap::after {
+  @apply bottom-0 right-6;
+  transform: rotate(180deg);
+}
+
+.author {
+  @apply font-sans uppercase mt-5 pt-5 text-xl;
+  background-image: url("../../public/images/horizontal-dots-purple.svg");
+  background-repeat: no-repeat;
+  background-size: 176px 2px;
+  background-position: center top;
+}

@@ -10,6 +10,7 @@ import { Button } from "../components/Button/Button";
 import { CalloutBoxes } from "../components/Typography/CalloutBoxes";
 import { YouTubeVideo } from "../components/Video/YouTubeVideo";
 import { Process } from "../components/Typography/Process";
+import { PullQuote } from "../components/Typography/PullQuote";
 
 export default function Page({ page, navigation, preview }) {
   const jumpLinks = [
@@ -91,6 +92,8 @@ export default function Page({ page, navigation, preview }) {
       },
     },
   ];
+  const quote =
+    "Rae Barnes has taken our family photo for the past five years.  We have four young, high energy children and a handful of pets, so this is no small task. Somehow, without fail, every single time Rae catches insightful moments of each of us, and all of us together, that bring my husband and I to tears. She is delightful to work with and incredibly professional in her work and time frame. We could not recommend Rae enough for capturing these moments that are so short, and too sweet to forget.";
 
   return (
     <Layout
@@ -169,6 +172,7 @@ export default function Page({ page, navigation, preview }) {
             <YouTubeVideo videoId="Pq8GXD-G8VA" />
           </div>
           <Process steps={processSteps} />
+          <PullQuote author="Julia P." quote={quote} />
         </>
       )}
     </Layout>

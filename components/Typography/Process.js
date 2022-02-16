@@ -11,7 +11,7 @@ export const Process = ({ steps }) => {
       <div className="text-center mt-40">
         <Link href={`/contact`} passHref>
           <Button type="link" size="large">
-            Let's chat about your family
+            Let&apos;s chat about your family
           </Button>
         </Link>
       </div>
