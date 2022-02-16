@@ -11,6 +11,8 @@ import { CalloutBoxes } from "../components/Typography/CalloutBoxes";
 import { YouTubeVideo } from "../components/Video/YouTubeVideo";
 import { Process } from "../components/Typography/Process";
 import { PullQuote } from "../components/Typography/PullQuote";
+import { ImageGrid } from "../components/Images/ImageGrid";
+import { getContentfulImageDataFromArray } from "../lib/utils";
 
 export default function Page({ page, navigation, preview }) {
   const jumpLinks = [
@@ -173,6 +175,18 @@ export default function Page({ page, navigation, preview }) {
           </div>
           <Process steps={processSteps} />
           <PullQuote author="Julia P." quote={quote} />
+          <section id="about-artwork" className="mb-20">
+            <SectionIntro
+              id="about-artwork"
+              heading="Heirloom Artwork"
+              headingType="h2"
+            >
+              <ContentfulRichText content={page?.fields?.quaternaryContent} />
+            </SectionIntro>
+          </section>
+          <ImageGrid
+            images={getContentfulImageDataFromArray(page?.fields?.imageGrid)}
+          />
         </>
       )}
     </Layout>

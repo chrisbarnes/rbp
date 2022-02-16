@@ -1,8 +1,6 @@
 import DottedLine from "../../public/images/horizontal-dots-white.svg";
 
 export const CalloutBox = ({ heading, description }) => {
-  console.log(DottedLine);
-
   return (
     <div className="bg-plum text-white even:bg-lightPurple even:text-darkPurple last:bg-darkPurple py-10 px-8 text-center">
       <h4
