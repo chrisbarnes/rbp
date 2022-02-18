@@ -1,9 +1,9 @@
 import React from "react";
 
-export const PinterestLogo = () => {
+export const PinterestLogo = ({ color }) => {
   return (
     <svg
-      className="w-full h-auto max-h-full fill-darkBlue"
+      className={`w-full h-auto max-h-full ${color}`}
       xmlSpace="preserve"
       viewBox="267.2 383.78 17.8 22.32"
     >

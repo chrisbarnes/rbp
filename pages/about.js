@@ -12,9 +12,11 @@ import { YouTubeVideo } from "../components/Video/YouTubeVideo";
 import { Process } from "../components/Typography/Process";
 import { PullQuote } from "../components/Typography/PullQuote";
 import { ImageGrid } from "../components/Images/ImageGrid";
+import { InstagramPosts } from "../components/Images/InstagramPosts";
 import { getContentfulImageDataFromArray } from "../lib/utils";
+import { getInstagramPosts } from "../lib/instagram";
 
-export default function Page({ page, navigation, preview }) {
+export default function Page({ page, navigation, instagramPosts, preview }) {
   const jumpLinks = [
     {
       text: "About Rae",
@@ -187,6 +189,7 @@ export default function Page({ page, navigation, preview }) {
           <ImageGrid
             images={getContentfulImageDataFromArray(page?.fields?.imageGrid)}
           />
+          <InstagramPosts posts={instagramPosts} />
         </>
       )}
     </Layout>
@@ -196,6 +199,7 @@ export default function Page({ page, navigation, preview }) {
 export async function getStaticProps({ params, preview = false }) {
   const page = await getPageBySlug("about", preview);
   const navigation = await getPageNavigation(preview);
+  const instagramPosts = await getInstagramPosts(5);
 
   if (!page) {
     return {
@@ -208,6 +212,7 @@ export async function getStaticProps({ params, preview = false }) {
       preview,
       page: page ? page : null,
       navigation: navigation ? navigation : null,
+      instagramPosts: instagramPosts ? instagramPosts : null,
     },
   };
 }
