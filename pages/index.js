@@ -1,7 +1,7 @@
 import { Layout } from "../components/Layout/Layout";
 import { getPageNavigation, getHomepage } from "../lib/api";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import Image from "next/image";
+import { SectionIntro } from "../components/Typography/SectionIntro";
 
 export default function Home({ page, navigation, preview }) {
   return (
@@ -15,8 +15,13 @@ export default function Home({ page, navigation, preview }) {
         title: page?.fields?.heroImage?.fields?.title,
       }}
     >
-      {page && <h1>{page?.fields?.title}</h1>}
-      {page && documentToReactComponents(page?.fields?.mainContent)}
+      {page && (
+        <>
+          <SectionIntro heading={page?.fields?.title} headingType="h1">
+            {documentToReactComponents(page?.fields?.mainContent)}
+          </SectionIntro>
+        </>
+      )}
     </Layout>
   );
 }

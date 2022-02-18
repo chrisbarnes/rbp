@@ -12,7 +12,7 @@ export const SocialLink = ({ type }) => {
           rel="noreferrer"
           target="_blank"
         >
-          <FacebookLogo />
+          <FacebookLogo color="fill-darkBlue" />
         </a>
       );
 
@@ -23,7 +23,7 @@ export const SocialLink = ({ type }) => {
           rel="noreferrer"
           target="_blank"
         >
-          <PinterestLogo />
+          <PinterestLogo color="fill-darkBlue" />
         </a>
       );
 
@@ -34,7 +34,7 @@ export const SocialLink = ({ type }) => {
           rel="noreferrer"
           target="_blank"
         >
-          <InstagramLogo />
+          <InstagramLogo color="fill-darkBlue" />
         </a>
       );
 

@@ -5,3 +5,31 @@
 * {
   box-sizing: border-box;
 }
+
+h1,
+h2,
+h3,
+h4 {
+  @apply font-serif;
+}
+
+h1,
+h2 {
+  @apply text-4xl uppercase text-darkPurple text-center pb-6 mb-10;
+  background-image: url("../public/images/horizontal-dots.svg");
+  background-repeat: no-repeat;
+  background-size: 176px 2px;
+  background-position: center bottom;
+}
+
+h3 {
+  @apply text-green text-4xl mb-8;
+}
+
+p {
+  @apply mb-12 text-darkPurple;
+}
+
+a {
+  @apply underline;
+}

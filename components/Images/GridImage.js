@@ -1,7 +1,6 @@
-import React from "react";
 import Image from "next/image";
 
-export const HeaderImage = ({ image, preserveUrl }) => {
+export const GridImage = ({ image, preserveUrl }) => {
   if (!image) {
     return null;
   }
@@ -20,15 +19,16 @@ export const HeaderImage = ({ image, preserveUrl }) => {
   }
 
   return (
-    <Image
-      alt={image.title}
-      src={imageSrc}
-      layout="responsive"
-      width={1280}
-      height={768}
-      placeholder="blur"
-      blurDataURL={blurSrc}
-      priority
-    />
+    <div className="w-1/3 aspect-square">
+      <Image
+        alt={image.title}
+        src={imageSrc}
+        layout="responsive"
+        width={426}
+        height={426}
+        placeholder="blur"
+        blurDataURL={blurSrc}
+      />
+    </div>
   );
 };

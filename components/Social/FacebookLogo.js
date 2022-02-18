@@ -1,9 +1,9 @@
 import React from "react";
 
-export const FacebookLogo = () => {
+export const FacebookLogo = ({ color }) => {
   return (
     <svg
-      className="w-full h-auto max-h-full fill-darkBlue"
+      className={`w-full h-auto max-h-full ${color}`}
       xmlSpace="preserve"
       viewBox="303.72 368.74 11.08 22.96"
     >

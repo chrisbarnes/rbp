@@ -5,7 +5,7 @@ import { SocialLinks } from "../Social/SocialLinks";
 export const Footer = ({ items }) => {
   return (
     <footer>
-      <div className="container mx-auto flex">
+      <div className="mx-auto flex">
         <section className="basis-2/3 p-12 bg-grayPurple">
           <div className="w-28 m-auto mb-10">
             <FooterLogo />
