@@ -5,7 +5,7 @@ export const PullQuote = ({ quote, author }) => {
     <div className={styles.wrap}>
       <figure className="mx-auto max-w-4xl">
         <blockquote className="text-4xl font-serif">{quote}</blockquote>
-        <figcaption className={styles.author}>{author}</figcaption>
+        {author && <figcaption className={styles.author}>{author}</figcaption>}
       </figure>
     </div>
   );
