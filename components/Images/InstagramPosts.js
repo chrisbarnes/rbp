@@ -19,9 +19,10 @@ export const InstagramPosts = ({ posts }) => {
         </a>
       </div>
       <div className="w-9/12 flex">
-        {posts.map((post, index) => (
-          <InstagramImage {...post} key={`insta-${index}`} />
-        ))}
+        {posts &&
+          posts.map((post, index) => (
+            <InstagramImage {...post} key={`insta-${index}`} />
+          ))}
       </div>
     </div>
   );
