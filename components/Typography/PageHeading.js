@@ -1,5 +1,5 @@
 import React from "react";
 
 export const PageHeading = ({ Type, children }) => {
-  return <Type>{children}</Type>;
+  return <Type className="max-w-lg mx-auto">{children}</Type>;
 };
