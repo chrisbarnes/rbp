@@ -1,8 +1,12 @@
+import Link from "next/link";
 import { Layout } from "../components/Layout/Layout";
 import { getPageNavigation, getHomepage } from "../lib/api";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { SectionIntro } from "../components/Typography/SectionIntro";
 import { YouTubeVideo } from "../components/Video/YouTubeVideo";
+import { ContentfulRichText } from "../components/Typography/ContentfulRichText";
+import { Button } from "../components/Button/Button";
+import { SplitSection } from "../components/Typography/SplitSection";
 
 export default function Home({ page, navigation, preview }) {
   return (
@@ -26,6 +30,18 @@ export default function Home({ page, navigation, preview }) {
               <YouTubeVideo videoId={page?.fields?.youtubeVideoId} />
             </div>
           )}
+          <SplitSection
+            heading={page?.fields?.secondaryContentHeading}
+            link={page?.fields?.secondaryContentCallToActionLink?.fields?.slug}
+            linkText={page?.fields?.secondaryContentCallToActionText}
+          >
+            <ContentfulRichText
+              content={page?.fields?.secondaryContent}
+              altParagraph={(node, children) => (
+                <p className="mb-8">{children}</p>
+              )}
+            />
+          </SplitSection>
         </>
       )}
     </Layout>

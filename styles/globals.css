@@ -33,3 +33,7 @@ p {
 a {
   @apply underline;
 }
+
+iframe {
+  @apply max-w-full h-auto aspect-video;
+}

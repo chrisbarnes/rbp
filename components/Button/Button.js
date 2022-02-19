@@ -15,6 +15,7 @@ export const Button = ({ type, size, children, ...rest }) => {
     "text-xl": size === "large",
     "leading-none": true,
     "no-underline": true,
+    "inline-block": true,
   });
 
   if (type === "link") {
