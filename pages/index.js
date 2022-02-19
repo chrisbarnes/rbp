@@ -2,6 +2,7 @@ import { Layout } from "../components/Layout/Layout";
 import { getPageNavigation, getHomepage } from "../lib/api";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { SectionIntro } from "../components/Typography/SectionIntro";
+import { YouTubeVideo } from "../components/Video/YouTubeVideo";
 
 export default function Home({ page, navigation, preview }) {
   return (
@@ -20,6 +21,11 @@ export default function Home({ page, navigation, preview }) {
           <SectionIntro heading={page?.fields?.title} headingType="h1">
             {documentToReactComponents(page?.fields?.mainContent)}
           </SectionIntro>
+          {page?.fields?.youtubeVideoId && (
+            <div className="mb-24">
+              <YouTubeVideo videoId={page?.fields?.youtubeVideoId} />
+            </div>
+          )}
         </>
       )}
     </Layout>
