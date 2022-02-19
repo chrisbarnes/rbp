@@ -13,7 +13,7 @@ export const Layout = ({
   headerImage,
 }) => {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div>
       <Head>
         <title>
           {seoTitle
@@ -25,7 +25,9 @@ export const Layout = ({
       </Head>
       <Header items={header} image={headerImage} />
       {isPreview && <PreviewBanner />}
-      <main>{children}</main>
+      <div className="max-w-7xl mx-auto">
+        <main>{children}</main>
+      </div>
       <Footer items={footer} />
     </div>
   );
