@@ -3,7 +3,7 @@ import { InstagramLogo } from "../Social/InstagramLogo";
 
 export const InstagramPosts = ({ posts }) => {
   return (
-    <div className="py-32 flex">
+    <div className="pb-32 flex max-w-7xl mx-auto">
       <div className="w-3/12 text-lightPurple text-center flex justify-center items-center flex-col">
         <span className="uppercase text-xl mb-2">Follow us at</span>
         <a

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export const GridImage = ({ image, preserveUrl }) => {
+export const GridImage = ({ image, preserveUrl, disableWrapperClasses }) => {
   if (!image) {
     return null;
   }
@@ -18,8 +18,10 @@ export const GridImage = ({ image, preserveUrl }) => {
     blurSrc = image.url.split(".")[0] + "-low." + image.url.split(".")[1];
   }
 
+  const classes = !disableWrapperClasses ? "w-1/3 aspect-square" : "";
+
   return (
-    <div className="w-1/3 aspect-square">
+    <div className={classes}>
       <Image
         alt={image.title}
         src={imageSrc}

@@ -11,6 +11,7 @@ export const Layout = ({
   seoTitle,
   seoDescription,
   headerImage,
+  instagramPosts,
 }) => {
   return (
     <div>
@@ -28,7 +29,7 @@ export const Layout = ({
       <div className="max-w-7xl mx-auto">
         <main>{children}</main>
       </div>
-      <Footer items={footer} />
+      <Footer items={footer} instagramPosts={instagramPosts} />
     </div>
   );
 };

@@ -12,7 +12,6 @@ import { YouTubeVideo } from "../components/Video/YouTubeVideo";
 import { Process } from "../components/Typography/Process";
 import { PullQuote } from "../components/Typography/PullQuote";
 import { ImageGrid } from "../components/Images/ImageGrid";
-import { InstagramPosts } from "../components/Images/InstagramPosts";
 import { getContentfulImageDataFromArray } from "../lib/utils";
 import { getInstagramPosts } from "../lib/instagram";
 
@@ -107,6 +106,7 @@ export default function Page({ page, navigation, instagramPosts, preview }) {
         url: page?.fields?.heroImage?.fields?.file?.url,
         title: page?.fields?.heroImage?.fields?.title,
       }}
+      instagramPosts={instagramPosts}
     >
       {page && (
         <>
@@ -194,7 +194,6 @@ export default function Page({ page, navigation, instagramPosts, preview }) {
           <ImageGrid
             images={getContentfulImageDataFromArray(page?.fields?.imageGrid)}
           />
-          <InstagramPosts posts={instagramPosts} />
         </>
       )}
     </Layout>
