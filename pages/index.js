@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Layout } from "../components/Layout/Layout";
 import { getPageNavigation, getHomepage } from "../lib/api";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -81,6 +82,44 @@ export default function Home({ page, navigation, preview }) {
               </Button>
             </Link>
           </div>
+          <section className="max-w-4xl mx-auto">
+            <div className="flex">
+              <div className="basis-1/2 text-center px-11">
+                <ContentfulRichText
+                  content={page?.fields?.tertiaryContent}
+                  altParagraph={(node, children) => (
+                    <p className="text-xl mb-8">{children}</p>
+                  )}
+                  altH3={(node, children) => (
+                    <h3
+                      className="text-green text-4xl pb-6 mb-8 bg-bottom bg-no-repeat bg-[url('/images/horizontal-dots.svg')]"
+                      style={{ backgroundSize: "176px 2px" }}
+                    >
+                      {children}
+                    </h3>
+                  )}
+                />
+                <Link
+                  href={`/${page?.fields?.tertiaryContentCallToActionLink?.fields?.slug}`}
+                  passHref
+                >
+                  <Button type="link" size="large">
+                    {page?.fields?.tertiaryContentCallToActionText}
+                  </Button>
+                </Link>
+              </div>
+              <div className="basis-1/2">
+                <Image
+                  alt={page?.fields?.tertiaryContentImage?.fields?.title}
+                  src={`https:${page?.fields?.tertiaryContentImage?.fields?.file?.url}`}
+                  layout="intrinsic"
+                  width={440}
+                  height={526}
+                  className="home-rae-image"
+                />
+              </div>
+            </div>
+          </section>
         </>
       )}
     </Layout>

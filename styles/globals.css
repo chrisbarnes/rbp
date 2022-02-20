@@ -37,3 +37,10 @@ a {
 iframe {
   @apply max-w-full h-auto aspect-video;
 }
+
+/* had trouble figuring out why next/image was scaling this image to 100% height so had to override a few properties set on the generated styles */
+.home-rae-image {
+  min-height: unset !important;
+  height: auto !important;
+  margin: 0 !important;
+}
