@@ -97,8 +97,6 @@ export default function Page({ page, navigation, instagramPosts, preview }) {
     },
   ];
 
-  console.log(page);
-
   return (
     <Layout
       {...navigation}
