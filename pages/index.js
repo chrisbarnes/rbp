@@ -5,10 +5,36 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { SectionIntro } from "../components/Typography/SectionIntro";
 import { YouTubeVideo } from "../components/Video/YouTubeVideo";
 import { ContentfulRichText } from "../components/Typography/ContentfulRichText";
-import { Button } from "../components/Button/Button";
 import { SplitSection } from "../components/Typography/SplitSection";
+import { LinkedImageGridWithContent } from "../components/Images/LinkedImageGridWithContent";
+import { Button } from "../components/Button/Button";
 
 export default function Home({ page, navigation, preview }) {
+  console.log(page);
+
+  const linkedImageGridItems = page?.fields?.linkedImageGrid.map(
+    (linkedImageGridItem) => {
+      if (linkedImageGridItem?.fields?.image) {
+        return {
+          image: {
+            url: linkedImageGridItem?.fields?.image?.fields?.file?.url,
+            title: linkedImageGridItem?.fields?.image?.fields?.title,
+          },
+          link: `/${linkedImageGridItem?.fields?.link?.fields?.slug}`,
+        };
+      }
+
+      if (!linkedImageGridItem?.fields?.image) {
+        return {
+          heading: linkedImageGridItem?.fields?.heading,
+          description: linkedImageGridItem?.fields?.description,
+          link: `/${linkedImageGridItem?.fields?.link?.fields.slug}`,
+          linkText: linkedImageGridItem?.fields?.linkText,
+        };
+      }
+    }
+  );
+
   return (
     <Layout
       {...navigation}
@@ -42,6 +68,19 @@ export default function Home({ page, navigation, preview }) {
               )}
             />
           </SplitSection>
+          <LinkedImageGridWithContent
+            linkedImageGridItems={linkedImageGridItems}
+          />
+          <div className="text-center mt-8 mb-28">
+            <Link
+              href={`/${page?.fields?.linkedImageGridCallToActionLink?.fields?.slug}`}
+              passHref
+            >
+              <Button type="link" size="large">
+                {page?.fields?.linkedImageGridCallToActionText}
+              </Button>
+            </Link>
+          </div>
         </>
       )}
     </Layout>
