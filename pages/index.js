@@ -9,10 +9,9 @@ import { ContentfulRichText } from "../components/Typography/ContentfulRichText"
 import { SplitSection } from "../components/Typography/SplitSection";
 import { LinkedImageGridWithContent } from "../components/Images/LinkedImageGridWithContent";
 import { Button } from "../components/Button/Button";
+import { PullQuote } from "../components/Typography/PullQuote";
 
 export default function Home({ page, navigation, preview }) {
-  console.log(page);
-
   const linkedImageGridItems = page?.fields?.linkedImageGrid.map(
     (linkedImageGridItem) => {
       if (linkedImageGridItem?.fields?.image) {
@@ -82,7 +81,7 @@ export default function Home({ page, navigation, preview }) {
               </Button>
             </Link>
           </div>
-          <section className="max-w-4xl mx-auto">
+          <section className="max-w-4xl mx-auto mb-28">
             <div className="flex">
               <div className="basis-1/2 text-center px-11">
                 <ContentfulRichText
@@ -114,12 +113,18 @@ export default function Home({ page, navigation, preview }) {
                   src={`https:${page?.fields?.tertiaryContentImage?.fields?.file?.url}`}
                   layout="intrinsic"
                   width={440}
-                  height={526}
+                  height={472}
                   className="home-rae-image"
                 />
               </div>
             </div>
           </section>
+          {page?.fields?.clientQuote?.fields?.quote && (
+            <PullQuote
+              author={page?.fields?.clientQuote?.fields?.author}
+              quote={page?.fields?.clientQuote?.fields?.quote}
+            />
+          )}
         </>
       )}
     </Layout>
