@@ -10,8 +10,9 @@ import { SplitSection } from "../components/Typography/SplitSection";
 import { LinkedImageGridWithContent } from "../components/Images/LinkedImageGridWithContent";
 import { Button } from "../components/Button/Button";
 import { PullQuote } from "../components/Typography/PullQuote";
+import { getInstagramPosts } from "../lib/instagram";
 
-export default function Home({ page, navigation, preview }) {
+export default function Home({ page, navigation, instagramPosts, preview }) {
   const linkedImageGridItems = page?.fields?.linkedImageGrid.map(
     (linkedImageGridItem) => {
       if (linkedImageGridItem?.fields?.image) {
@@ -45,6 +46,7 @@ export default function Home({ page, navigation, preview }) {
         url: page?.fields?.heroImage?.fields?.file?.url,
         title: page?.fields?.heroImage?.fields?.title,
       }}
+      instagramPosts={instagramPosts}
     >
       {page && (
         <>
@@ -134,12 +136,14 @@ export default function Home({ page, navigation, preview }) {
 export async function getStaticProps({ params, preview = false }) {
   const page = await getHomepage(preview);
   const navigation = await getPageNavigation();
+  const instagramPosts = await getInstagramPosts(5);
 
   return {
     props: {
       preview,
       page: page ? page : null,
       navigation: navigation ? navigation : null,
+      instagramPosts: instagramPosts ? instagramPosts : null,
     },
   };
 }
