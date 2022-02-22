@@ -1,11 +1,23 @@
 import React from "react";
 import Link from "next/link";
+import classNames from "clsx";
+import styles from "./header-link.module.css";
 
-export const HeaderLink = ({ link }) => {
+export const HeaderLink = ({ link, isActive }) => {
+  const linkClasses = classNames({
+    [styles["header-link"]]: true,
+    [styles["header-link-active"]]: isActive,
+  });
+
   return (
-    <span className="uppercase text-sm font-serif" key={`link-${link.text}`}>
+    <span
+      className="uppercase text-sm font-serif left-"
+      key={`link-${link.text}`}
+    >
       <Link href={link.url}>
-        <a className="px-2 lg:px-4 py-1 no-underline">{link.text}</a>
+        <a className={linkClasses} style={{}}>
+          {link.text}
+        </a>
       </Link>
     </span>
   );

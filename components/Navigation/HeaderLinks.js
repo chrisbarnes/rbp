@@ -1,8 +1,11 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { HeaderLogo } from "./HeaderLogo";
 import { HeaderLink } from "./HeaderLink";
 
 export const HeaderLinks = ({ links }) => {
+  const router = useRouter();
+
   if (!links) {
     return null;
   }
@@ -14,7 +17,7 @@ export const HeaderLinks = ({ links }) => {
   const rightSideLinks = links.slice(slicePoint, links.length);
 
   return (
-    <nav className="bg-lightPurple/60 hover:bg-white focus-within:bg-white transition-colors">
+    <nav className="">
       <div className="container mx-auto md:flex justify-around items-center">
         <div className="lg:grow md:order-2">
           <Link href="/">
@@ -25,12 +28,20 @@ export const HeaderLinks = ({ links }) => {
         </div>
         <div className="grow basis-60 flex justify-start md:order-1">
           {leftSideLinks?.map((link) => (
-            <HeaderLink key={link.text} link={link} />
+            <HeaderLink
+              key={link.text}
+              link={link}
+              isActive={router.pathname === link.url}
+            />
           ))}
         </div>
         <div className="grow basis-60 flex justify-end md:order-3">
           {rightSideLinks?.map((link) => (
-            <HeaderLink key={link.text} link={link} />
+            <HeaderLink
+              key={link.text}
+              link={link}
+              isActive={router.pathname === link.url}
+            />
           ))}
         </div>
       </div>
