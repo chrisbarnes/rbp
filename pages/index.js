@@ -47,6 +47,7 @@ export default function Home({ page, navigation, instagramPosts, preview }) {
         title: page?.fields?.heroImage?.fields?.title,
       }}
       instagramPosts={instagramPosts}
+      isHome
     >
       {page && (
         <>

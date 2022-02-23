@@ -9,7 +9,7 @@ export const Logo = () => {
         x="0px"
         y="0px"
         viewBox="230.1 312.99 158.09 130.71"
-        className="w-32 h-auto"
+        className="w-full h-auto"
         xmlSpace="preserve"
       >
         <style type="text/css">
