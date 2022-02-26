@@ -10,6 +10,15 @@ const moduleExports = {
   images: {
     domains: ["images.ctfassets.net", "scontent-lga3-1.cdninstagram.com"],
   },
+  async redirects() {
+    return [
+      {
+        source: "/clients-for-life",
+        destination: "/clients-for-life/family-1",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 const sentryWebpackPluginOptions = {
