@@ -24,8 +24,6 @@ export const MasonryGridImage = ({ image, preserveUrl }) => {
         alt={image.title}
         src={imageSrc}
         layout="fill"
-        width={426}
-        height={426}
         placeholder="blur"
         blurDataURL={blurSrc}
       />
