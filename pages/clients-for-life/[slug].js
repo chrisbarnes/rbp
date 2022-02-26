@@ -2,6 +2,7 @@ import { Layout } from "../../components/Layout/Layout";
 import {
   getClientForLifePageBySlug,
   getClientsForLifePages,
+  getClientsForLifeNavigation,
   getPageNavigation,
 } from "../../lib/api";
 import { SectionIntro } from "../../components/Typography/SectionIntro";
@@ -19,7 +20,6 @@ export default function Page({
   instagramPosts,
   preview,
 }) {
-  console.log(page);
   const gridImages = page?.fields?.imageGrid.map((image) => ({
     url: image?.fields?.file?.url,
     title: image?.fields?.title,
@@ -65,6 +65,7 @@ export default function Page({
 
 export async function getStaticProps({ params, preview = false }) {
   const pageData = await getClientForLifePageBySlug(params.slug, preview);
+  const subNavigation = await getClientsForLifeNavigation(preview);
   const navigation = await getPageNavigation(preview);
   const instagramPosts = await getInstagramPosts(5);
 
@@ -79,11 +80,7 @@ export async function getStaticProps({ params, preview = false }) {
       preview,
       page: pageData.page ? pageData.page : null,
       navigation: navigation ? navigation : null,
-      subNavigation:
-        pageData.navigation?.sort().map((navItem) => ({
-          text: navItem.text,
-          url: `/clients-for-life/${navItem.slug}`,
-        })) ?? null,
+      subNavigation,
       instagramPosts: instagramPosts ? instagramPosts : null,
     },
   };
