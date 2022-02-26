@@ -11,6 +11,7 @@ import { LinkedImageGridWithContent } from "../components/Images/LinkedImageGrid
 import { Button } from "../components/Button/Button";
 import { PullQuote } from "../components/Typography/PullQuote";
 import { getInstagramPosts } from "../lib/instagram";
+import { BasicContentBlock } from "../components/Typography/BasicContentBlock";
 
 export default function Home({ page, navigation, instagramPosts, preview }) {
   const linkedImageGridItems = page?.fields?.linkedImageGrid.map(
@@ -87,28 +88,13 @@ export default function Home({ page, navigation, instagramPosts, preview }) {
           <section className="max-w-4xl mx-auto mb-28">
             <div className="flex">
               <div className="basis-1/2 text-center px-11">
-                <ContentfulRichText
-                  content={page?.fields?.tertiaryContent}
-                  altParagraph={(node, children) => (
-                    <p className="text-xl mb-8">{children}</p>
-                  )}
-                  altH3={(node, children) => (
-                    <h3
-                      className="text-green text-4xl pb-6 mb-8 bg-bottom bg-no-repeat bg-[url('/images/horizontal-dots.svg')]"
-                      style={{ backgroundSize: "176px 2px" }}
-                    >
-                      {children}
-                    </h3>
-                  )}
+                <BasicContentBlock
+                  richText={page?.fields?.tertiaryContent}
+                  linkSlug={
+                    page?.fields?.tertiaryContentCallToActionLink?.fields?.slug
+                  }
+                  linkText={page?.fields?.tertiaryContentCallToActionText}
                 />
-                <Link
-                  href={`/${page?.fields?.tertiaryContentCallToActionLink?.fields?.slug}`}
-                  passHref
-                >
-                  <Button type="link" size="large">
-                    {page?.fields?.tertiaryContentCallToActionText}
-                  </Button>
-                </Link>
               </div>
               <div className="basis-1/2">
                 <Image
