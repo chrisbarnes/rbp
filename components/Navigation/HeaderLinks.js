@@ -15,6 +15,25 @@ export const HeaderLinks = ({ links }) => {
   const slicePoint = Math.ceil(links.length / 2);
   const leftSideLinks = links.slice(0, slicePoint);
   const rightSideLinks = links.slice(slicePoint, links.length);
+  const getIsActiveLink = (currentRoute, linkUrl) => {
+    // Basic - if the current route is the link being rendered
+    if (currentRoute === linkUrl) {
+      return true;
+    }
+
+    // Complex-ish - if the current route is a descendent of the link being rendered
+    const currentRouteHierarchy = router.asPath
+      .split("/")
+      .filter((link) => link !== "");
+    const linkHierarchy = linkUrl.split("/").filter((link) => link !== "");
+
+    // If the current route hierarchy has the current page in it, mark this as active
+    const isActive = currentRouteHierarchy.includes(
+      linkHierarchy[linkHierarchy.length - 1]
+    );
+
+    return isActive;
+  };
 
   return (
     <nav className="">
@@ -31,7 +50,7 @@ export const HeaderLinks = ({ links }) => {
             <HeaderLink
               key={link.text}
               link={link}
-              isActive={router.pathname === link.url}
+              isActive={getIsActiveLink(router.asPath, link.url)}
             />
           ))}
         </div>
@@ -40,7 +59,7 @@ export const HeaderLinks = ({ links }) => {
             <HeaderLink
               key={link.text}
               link={link}
-              isActive={router.pathname === link.url}
+              isActive={getIsActiveLink(router.asPath, link.url)}
             />
           ))}
         </div>
