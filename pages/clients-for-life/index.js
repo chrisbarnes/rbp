@@ -1,12 +1,12 @@
-export default function Page() {
-  return <p>You should be redirected when arriving on this page.</p>;
-}
+import { useRouter } from "next/router";
 
-export async function getStaticProps() {
-  return {
-    redirect: {
-      destination: "/clients-for-life/family-1",
-      permanent: true,
-    },
-  };
+const REDIRECT_PAGE = "/clients-for-life/family-1";
+
+export default function Page() {
+  const router = useRouter();
+
+  if (typeof window !== "undefined") {
+    router.push(REDIRECT_PAGE);
+    return null;
+  }
 }
