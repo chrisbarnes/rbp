@@ -9,4 +9,6 @@ export default function Page() {
     router.push(REDIRECT_PAGE);
     return null;
   }
+
+  return <div></div>;
 }
