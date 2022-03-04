@@ -9,8 +9,8 @@ export const MasonryGrid = ({ images, preview }) => {
     <section
       className="grid gap-5 mb-20"
       style={{
-        "grid-template-columns": "repeat( auto-fill, minmax( 320px, 1fr ) )",
-        "grid-auto-rows": "270px",
+        gridTemplateColumns: "repeat( auto-fill, minmax( 320px, 1fr ) )",
+        gridAutoRows: "270px",
       }}
     >
       {images.map((image, index) => (
