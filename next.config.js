@@ -8,13 +8,22 @@ const { withSentryConfig } = require("@sentry/nextjs");
 const moduleExports = {
   reactStrictMode: true,
   images: {
-    domains: ["images.ctfassets.net", "scontent-lga3-1.cdninstagram.com"],
+    domains: [
+      "images.ctfassets.net",
+      "scontent-lga3-1.cdninstagram.com",
+      "scontent-atl3-2.cdninstagram.com",
+    ],
   },
   async redirects() {
     return [
       {
         source: "/clients-for-life",
         destination: "/clients-for-life/family-1",
+        permanent: true,
+      },
+      {
+        source: "/portfolio",
+        destination: "/portfolio/babies",
         permanent: true,
       },
     ];
