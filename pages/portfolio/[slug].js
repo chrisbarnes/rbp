@@ -11,7 +11,7 @@ import { PullQuote } from "../../components/Typography/PullQuote";
 import { HorizontalNavList } from "../../components/Navigation/HorizontalNavList";
 import { getInstagramPosts } from "../../lib/instagram";
 import { BasicContentBlock } from "../../components/Typography/BasicContentBlock";
-import { MasonryGrid } from "../../components/Images/MasonryGrid";
+import { Gallery } from "../../components/Images/Gallery";
 
 export default function Page({
   page,
@@ -22,9 +22,9 @@ export default function Page({
 }) {
   const gridImages = page?.fields?.imageGrid.map((image) => ({
     url: image?.fields?.file?.url,
-    title: image?.fields?.title,
     width: image?.fields?.file?.details?.image?.width,
     height: image?.fields?.file?.details?.image?.height,
+    title: image?.fields?.title,
   }));
 
   return (
@@ -45,7 +45,7 @@ export default function Page({
             <ContentfulRichText content={page?.fields?.mainContent} />
           </SectionIntro>
           <HorizontalNavList links={subNavigation} />
-          <MasonryGrid images={gridImages} preview={preview} alt />
+          <Gallery images={gridImages} preview={preview} alt />
           <div className="mb-24">
             <BasicContentBlock
               richText={page?.fields?.secondaryContent}
