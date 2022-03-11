@@ -1,0 +1,12 @@
+.galleryImage {
+  @apply relative h-auto px-4 overflow-hidden;
+}
+
+.galleryImage--horizontal {
+  aspect-ratio: 1.5;
+}
+
+.galleryImage--vertical {
+  @apply w-full;
+  aspect-ratio: 0.67;
+}
