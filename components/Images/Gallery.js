@@ -1,4 +1,4 @@
-import { GalleryImage } from "./GalleryImage";
+import { GalleryRow } from "./GalleryRow";
 
 export const Gallery = ({ images }) => {
   const horizontalImages = images
@@ -8,78 +8,27 @@ export const Gallery = ({ images }) => {
     .filter((image) => image.height > image.width)
     .map((image) => ({ ...image, orientation: "vertical" }));
 
-  console.log("horizontalImages", horizontalImages);
-  console.log("verticalImages", verticalImages);
-
   return (
     <div>
-      <div className="mb-3 sm:mb-5">
-        <GalleryImage image={horizontalImages[0]} />
-      </div>
-      <div className="grid grid-cols-2 gap-x-3 sm:gap-x-5 mb-3 sm:mb-5">
-        <GalleryImage image={verticalImages[0]} />
-        <GalleryImage image={verticalImages[1]} />
-      </div>
-      <div className="mb-3 sm:mb-5">
-        <GalleryImage image={horizontalImages[1]} />
-      </div>
-      <div className="grid grid-cols-3 gap-x-3 sm:gap-x-5 mb-3 sm:mb-5">
-        <GalleryImage image={verticalImages[2]} />
-        <GalleryImage image={verticalImages[3]} />
-        <GalleryImage image={verticalImages[4]} />
-      </div>
-      <div className="mb-3 sm:mb-5">
-        <GalleryImage image={horizontalImages[2]} />
-      </div>
-      <div className="mb-3 sm:mb-5">
-        <GalleryImage image={horizontalImages[3]} />
-      </div>
-      <div className="grid grid-cols-3 gap-x-3 sm:gap-x-5 mb-3 sm:mb-5">
-        <GalleryImage image={verticalImages[5]} />
-        <GalleryImage image={verticalImages[6]} />
-        <GalleryImage image={verticalImages[7]} />
-      </div>
-      <div className="grid grid-cols-2 gap-x-3 sm:gap-x-5 mb-3 sm:mb-5">
-        <GalleryImage image={horizontalImages[4]} />
-        <GalleryImage image={horizontalImages[5]} />
-      </div>
-      <div className="mb-3 sm:mb-5">
-        <GalleryImage image={horizontalImages[6]} />
-      </div>
+      <GalleryRow cols={1} images={[horizontalImages[0]]} />
+      <GalleryRow cols={2} images={[verticalImages[0], verticalImages[1]]} />
+      <GalleryRow cols={1} images={[horizontalImages[1]]} />
+      <GalleryRow cols={3} images={[verticalImages[2], verticalImages[3], verticalImages[4]]} />
+      <GalleryRow cols={1} images={[horizontalImages[2]]} />
+      <GalleryRow cols={1} images={[horizontalImages[3]]} />
+      <GalleryRow cols={3} images={[verticalImages[5], verticalImages[6], verticalImages[7]]} />
+      <GalleryRow cols={2} images={[horizontalImages[4], horizontalImages[5]]} />
+      <GalleryRow cols={1} images={[horizontalImages[6]]} />
 
-      <div className="mb-3 sm:mb-5">
-        <GalleryImage image={horizontalImages[7]} />
-      </div>
-      <div className="grid grid-cols-2 gap-x-3 sm:gap-x-5 mb-3 sm:mb-5">
-        <GalleryImage image={verticalImages[8]} />
-        <GalleryImage image={verticalImages[9]} />
-      </div>
-      <div className="mb-3 sm:mb-5">
-        <GalleryImage image={horizontalImages[8]} />
-      </div>
-      <div className="grid grid-cols-3 gap-x-3 sm:gap-x-5 mb-3 sm:mb-5">
-        <GalleryImage image={verticalImages[10]} />
-        <GalleryImage image={verticalImages[11]} />
-        <GalleryImage image={verticalImages[12]} />
-      </div>
-      <div className="mb-3 sm:mb-5">
-        <GalleryImage image={horizontalImages[9]} />
-      </div>
-      <div className="mb-3 sm:mb-5">
-        <GalleryImage image={horizontalImages[10]} />
-      </div>
-      <div className="grid grid-cols-3 gap-x-3 sm:gap-x-5 mb-3 sm:mb-5">
-        <GalleryImage image={verticalImages[13]} />
-        <GalleryImage image={verticalImages[14]} />
-        <GalleryImage image={verticalImages[15]} />
-      </div>
-      <div className="grid grid-cols-2 gap-x-3 sm:gap-x-5 mb-3 sm:mb-5">
-        <GalleryImage image={horizontalImages[11]} />
-        <GalleryImage image={horizontalImages[12]} />
-      </div>
-      <div className="mb-3 sm:mb-5">
-        <GalleryImage image={horizontalImages[13]} />
-      </div>
+      <GalleryRow cols={1} images={[horizontalImages[7]]} />
+      <GalleryRow cols={2} images={[verticalImages[8], verticalImages[9]]} />
+      <GalleryRow cols={1} images={[horizontalImages[8]]} />
+      <GalleryRow cols={3} images={[verticalImages[10], verticalImages[11], verticalImages[12]]} />
+      <GalleryRow cols={1} images={[horizontalImages[9]]} />
+      <GalleryRow cols={1} images={[horizontalImages[10]]} />
+      <GalleryRow cols={3} images={[verticalImages[13], verticalImages[14], verticalImages[15]]} />
+      <GalleryRow cols={2} images={[horizontalImages[11], horizontalImages[12]]} />
+      <GalleryRow cols={1} images={[horizontalImages[13]]} />
     </div>
   );
 };
