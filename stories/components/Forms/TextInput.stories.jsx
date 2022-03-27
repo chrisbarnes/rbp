@@ -17,5 +17,7 @@ TextInput.args = {
   label: "First Name",
   error: "Please enter your first name",
   isError: false,
-  value: "Chris",
+  defaultValue: "Chris",
+  modifier: 2,
+  type: "Text",
 };
