@@ -17,14 +17,14 @@ export const TaveForm = () => {
       isRequired: true,
     },
     {
-      type: "Text",
+      type: "Email",
       label: "Email",
       id: "email",
       modifier: 2,
       isRequired: true,
     },
     {
-      type: "Text",
+      type: "Tel",
       label: "Phone",
       id: "phone",
       modifier: 2,
@@ -52,7 +52,7 @@ export const TaveForm = () => {
       isRequired: true,
     },
     {
-      type: "Text",
+      type: "Date",
       label: "Desired Date",
       id: "date",
       modifier: 2,
