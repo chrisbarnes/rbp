@@ -9,7 +9,7 @@ export const Form = ({ fields, onFormSubmit }) => {
   return (
     <FormProvider {...methods}>
       <section>
-        <div className="py-16 mb-12 bg-lavender">
+        <div className="sm:py-16 mb-6 sm:mb-12 bg-lavender">
           <form
             className="flex flex-wrap max-w-dt-content mx-auto"
             onSubmit={methods.handleSubmit(onSubmit)}
