@@ -8,7 +8,7 @@ export const Form = ({ fields, onFormSubmit }) => {
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>
+      <form className="flex flex-wrap" onSubmit={methods.handleSubmit(onSubmit)} noValidate>
         {fields.map((field) => (
           <FormField key={field.id} {...field} />
         ))}
