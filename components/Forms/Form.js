@@ -8,13 +8,24 @@ export const Form = ({ fields, onFormSubmit }) => {
 
   return (
     <FormProvider {...methods}>
-      <form className="flex flex-wrap" onSubmit={methods.handleSubmit(onSubmit)} noValidate>
-        {fields.map((field) => (
-          <FormField key={field.id} {...field} />
-        ))}
-
-        <Button type="submit">Submit</Button>
-      </form>
+      <section>
+        <div className="py-16 mb-12 bg-lavender">
+          <form
+            className="flex flex-wrap max-w-dt-content mx-auto"
+            onSubmit={methods.handleSubmit(onSubmit)}
+            noValidate
+          >
+            {fields.map((field) => (
+              <FormField key={field.id} {...field} />
+            ))}
+          </form>
+        </div>
+        <div className="text-center">
+          <Button size="large" type="submit">
+            Submit Inquiry
+          </Button>
+        </div>
+      </section>
     </FormProvider>
   );
 };

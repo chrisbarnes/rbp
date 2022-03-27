@@ -9,7 +9,7 @@ export const Textarea = React.forwardRef((props, ref) => {
     <FieldContainer isError={props.errors[props.id]} modifier={props.modifier}>
       <FieldLabel id={props.id} text={props.label} />
       <textarea
-        className="focus:outline-none text-darkerBlue text-xl font-serif w-full h-48"
+        className="focus:outline-none text-darkerBlue text-xl font-serif w-full h-48 bg-transparent"
         id={props.id}
         ref={ref}
         aria-invalid={props.errors[props.id] ? true : false}

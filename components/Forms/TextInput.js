@@ -9,7 +9,7 @@ export const TextInput = React.forwardRef((props, ref) => {
     <FieldContainer isError={props.errors[props.id]} modifier={props.modifier}>
       <FieldLabel id={props.id} text={props.label} />
       <input
-        className="focus:outline-none text-darkerBlue text-xl font-serif w-full"
+        className="focus:outline-none text-darkerBlue text-xl font-serif w-full bg-transparent"
         id={props.id}
         type={props.type.toLowerCase()}
         ref={ref}

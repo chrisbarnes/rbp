@@ -8,7 +8,7 @@ export const Select = React.forwardRef((props, ref) => {
     <FieldContainer isError={props.errors[props.id]} modifier={props.modifier}>
       <FieldLabel id={props.id} text={props.label} />
       <select
-        className="appearance-none px-0 text-xl font-serif w-full"
+        className="appearance-none px-0 text-xl font-serif w-full bg-transparent"
         id={props.id}
         ref={ref}
         {...props}

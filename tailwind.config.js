@@ -1,9 +1,5 @@
 module.exports = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./public/index.html",
-  ],
+  content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}", "./public/index.html"],
   theme: {
     colors: {
       white: "#ffffff",
@@ -18,12 +14,17 @@ module.exports = {
       lavender: "#E7D3E6",
       green: "#67823A",
       sage: "#D0DEBB",
+      transparent: "transparent",
     },
     fontFamily: {
       sans: ["nobel", "sans-serif"],
       serif: ["adobe-garamond-pro", "serif"],
     },
-    extend: {},
+    extend: {
+      maxWidth: {
+        "dt-content": "960px",
+      },
+    },
   },
   plugins: [],
 };
