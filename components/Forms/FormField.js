@@ -34,8 +34,17 @@ export const FormField = ({ type, id, isRequired, ...rest }) => {
           errors={errors}
           type={type}
           {...rest}
-          {...register(id, { required: isRequired })}
+          {...register(id, {
+            required: isRequired,
+            validate: (value) => {
+              const testDate = new Date(value);
+              const today = new Date();
+
+              return testDate > today;
+            },
+          })}
           min={new Date().toISOString().split("T")[0]}
+          customValidationMessage="Please enter a future date."
         />
       );
     case "Text":

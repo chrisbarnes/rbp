@@ -1,5 +1,6 @@
 import React from "react";
 import classNames from "clsx";
+import styles from "./inputs.module.css";
 
 export const FieldContainer = ({ isError, modifier, children }) => {
   const fieldContainerClasses = classNames({
@@ -17,10 +18,10 @@ export const FieldContainer = ({ isError, modifier, children }) => {
     "-ml-px": true,
     "-mt-px": true,
   });
-  const styles = isError ? { outline: "3px solid #141B4D", outlineOffset: "-3px" } : {};
+  const inlineStyles = isError ? { outline: "3px solid #141B4D", outlineOffset: "-3px" } : {};
 
   return (
-    <div className={fieldContainerClasses} style={styles}>
+    <div className={`${fieldContainerClasses} ${styles.input}`} style={inlineStyles}>
       {children}
     </div>
   );
