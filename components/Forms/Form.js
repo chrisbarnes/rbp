@@ -8,7 +8,7 @@ export const Form = ({ id, fields, onFormSubmit }) => {
 
   return (
     <FormProvider {...methods}>
-      <section>
+      <section className="mb-12">
         <div className="sm:py-16 mb-6 sm:mb-12 bg-lavender">
           <form
             className="flex flex-wrap max-w-dt-content mx-auto"

@@ -6,27 +6,39 @@ export const TaveForm = () => {
       type: "Text",
       label: "First Name",
       id: "firstName",
+      modifier: 2,
+      isRequired: true,
     },
     {
       type: "Text",
       label: "Last Name",
       id: "lastName",
+      modifier: 2,
+      isRequired: true,
     },
     {
       type: "Text",
       label: "Email",
       id: "email",
+      modifier: 2,
+      isRequired: true,
     },
     {
       type: "Text",
       label: "Phone",
       id: "phone",
+      modifier: 2,
+      isRequired: true,
     },
     {
       type: "Select",
       label: "Shoot Type",
       id: "shootType",
       options: [
+        {
+          name: "",
+          value: "",
+        },
         {
           name: "Family Portrait",
           value: "Family Portrait",
@@ -36,17 +48,32 @@ export const TaveForm = () => {
           value: "Maternity",
         },
       ],
+      modifier: 2,
+      isRequired: true,
     },
     {
       type: "Text",
       label: "Desired Date",
       id: "date",
+      modifier: 2,
+      isRequired: true,
+    },
+    {
+      type: "Textarea",
+      label: "Your Message",
+      id: "message",
+      modifier: 1,
+      isRequired: false,
     },
     {
       type: "Select",
       label: "How did you hear about us?",
       id: "leadSource",
       options: [
+        {
+          name: "",
+          value: "",
+        },
         {
           name: "Search Engine",
           value: "Search Engine",
@@ -72,6 +99,8 @@ export const TaveForm = () => {
           value: "Other",
         },
       ],
+      modifier: 2,
+      isRequired: true,
     },
   ];
   const sendData = async (data) => {
@@ -92,8 +121,7 @@ export const TaveForm = () => {
 
   return (
     <div>
-      Submit a Tave form.
-      <Form fields={leadFields} onFormSubmit={(data) => submitTaveLead(data)} />
+      <Form fields={leadFields} id="taveForm" onFormSubmit={(data) => submitTaveLead(data)} />
     </div>
   );
 };
