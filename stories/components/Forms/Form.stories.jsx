@@ -6,6 +6,7 @@ const FormStory = {
 };
 
 const formProps = {
+  id: "testForm",
   onFormSubmit: (data) => alert(`Form Submitted with: ${JSON.stringify(data, null, 2)}`),
   fields: [
     {

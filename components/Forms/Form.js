@@ -2,7 +2,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { FormField } from "./FormField";
 import { Button } from "../Button/Button";
 
-export const Form = ({ fields, onFormSubmit }) => {
+export const Form = ({ id, fields, onFormSubmit }) => {
   const methods = useForm();
   const onSubmit = (data) => onFormSubmit(data);
 
@@ -14,6 +14,7 @@ export const Form = ({ fields, onFormSubmit }) => {
             className="flex flex-wrap max-w-dt-content mx-auto"
             onSubmit={methods.handleSubmit(onSubmit)}
             noValidate
+            id={id}
           >
             {fields.map((field) => (
               <FormField key={field.id} {...field} />
@@ -21,7 +22,7 @@ export const Form = ({ fields, onFormSubmit }) => {
           </form>
         </div>
         <div className="text-center">
-          <Button size="large" type="submit">
+          <Button size="large" type="submit" form={id}>
             Submit Inquiry
           </Button>
         </div>
