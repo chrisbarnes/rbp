@@ -1,0 +1,18 @@
+.loading {
+  @apply inline-block w-5 h-5 ml-2 relative -top-1;
+}
+.loading:after {
+  content: " ";
+  @apply block w-5 h-5 m-2 rounded-full border-2 border-darkPurple;
+
+  border-color: #5d3754 transparent #5d3754 transparent;
+  animation: loading 1.2s linear infinite;
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

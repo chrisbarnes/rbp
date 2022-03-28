@@ -1,8 +1,9 @@
 import { FormProvider, useForm } from "react-hook-form";
 import { FormField } from "./FormField";
 import { Button } from "../Button/Button";
+import { LoadingIndicator } from "../LoadingIndicator/LoadingIndicator";
 
-export const Form = ({ id, fields, onFormSubmit }) => {
+export const Form = ({ id, fields, onFormSubmit, isLoading }) => {
   const methods = useForm();
   const onSubmit = (data) => onFormSubmit(data);
 
@@ -22,8 +23,9 @@ export const Form = ({ id, fields, onFormSubmit }) => {
           </form>
         </div>
         <div className="text-center">
-          <Button size="large" type="submit" form={id}>
+          <Button size="large" type="submit" form={id} isDisabled={isLoading}>
             Submit Inquiry
+            {isLoading && <LoadingIndicator />}
           </Button>
         </div>
       </section>

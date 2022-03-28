@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { Form } from "./Form";
 
 export const TaveForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [isSubmissionComplete, setIsSubmissionComplete] = useState(false);
   const leadFields = [
     {
       type: "Text",
@@ -113,15 +117,34 @@ export const TaveForm = () => {
     });
   };
   const submitTaveLead = async (data) => {
+    setIsLoading(true);
     const response = await sendData(data);
     const { message } = await response.json();
+    setIsLoading(false);
 
-    console.log("message", message);
+    if (message === "Success") {
+      setIsSubmissionComplete(true);
+    } else {
+      setIsError(true);
+    }
   };
 
   return (
     <div>
-      <Form fields={leadFields} id="taveForm" onFormSubmit={(data) => submitTaveLead(data)} />
+      {!isSubmissionComplete && (
+        <Form fields={leadFields} id="taveForm" isLoading={isLoading} onFormSubmit={(data) => submitTaveLead(data)} />
+      )}
+
+      {isError && (
+        <p className="font-sans text-darkPurple text-2xl leading-9 text-center max-w-xl mx-auto mb-14">
+          Sorry. There was an error submitting your inquiry. Please try again or give us a call at - 215-278-9181 - to
+          set up a time to talk.
+        </p>
+      )}
+
+      {isSubmissionComplete && (
+        <p className="font-sans text-darkPurple text-2xl leading-9 text-center max-w-xl mx-auto mb-14">Thank you!</p>
+      )}
     </div>
   );
 };

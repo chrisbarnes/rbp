@@ -3,7 +3,7 @@ import classNames from "clsx";
 import PropTypes from "prop-types";
 
 // eslint-disable-next-line react/display-name
-export const Button = React.forwardRef(({ type, size, children, ...rest }, ref) => {
+export const Button = React.forwardRef(({ type, size, isDisabled, children, ...rest }, ref) => {
   const primaryClasses = classNames({
     "px-4": size !== "large",
     "py-4": size !== "large",
@@ -30,7 +30,7 @@ export const Button = React.forwardRef(({ type, size, children, ...rest }, ref) 
   }
 
   return (
-    <button className={primaryClasses} type={type} {...rest} ref={ref}>
+    <button className={primaryClasses} type={type} {...rest} ref={ref} disabled={isDisabled}>
       {children}
     </button>
   );
