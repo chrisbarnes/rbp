@@ -1,7 +1,10 @@
 import { useState } from "react";
+import Script from "next/script";
 import { Form } from "./Form";
+import { YouTubeVideo } from "../Video/YouTubeVideo";
+import { Button } from "../Button/Button";
 
-export const TaveForm = () => {
+export const TaveForm = ({ youtubeVideoId }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isSubmissionComplete, setIsSubmissionComplete] = useState(false);
@@ -129,6 +132,13 @@ export const TaveForm = () => {
     }
   };
 
+  const handleCalendlyClick = () => {
+    Calendly.initPopupWidget({
+      url: "https://calendly.com/rae-barnes/call-consultations?text_color=5d3754&primary_color=141b4d",
+    });
+    return false;
+  };
+
   return (
     <div>
       {!isSubmissionComplete && (
@@ -143,7 +153,20 @@ export const TaveForm = () => {
       )}
 
       {isSubmissionComplete && (
-        <p className="font-sans text-darkPurple text-2xl leading-9 text-center max-w-xl mx-auto mb-14">Thank you!</p>
+        <div className="mb-14">
+          <p className="font-sans text-darkPurple text-2xl leading-9 text-center max-w-xl mx-auto mb-14">Thank you!</p>
+
+          {youtubeVideoId && <YouTubeVideo videoId={youtubeVideoId} />}
+
+          <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+          <Script src="https://assets.calendly.com/assets/external/widget.js" />
+
+          <div className="my-14 text-center">
+            <Button type="button" size="large" onClick={handleCalendlyClick}>
+              Schedule a consultation
+            </Button>
+          </div>
+        </div>
       )}
     </div>
   );

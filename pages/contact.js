@@ -24,7 +24,7 @@ export default function ContactPage({ page, navigation, preview }) {
           </SectionIntro>
         </>
       )}
-      <TaveForm />
+      <TaveForm youtubeVideoId={page?.fields?.youtubeVideoId} />
       {page?.fields?.clientQuote?.fields?.quote && (
         <PullQuote
           author={page?.fields?.clientQuote?.fields?.author}
