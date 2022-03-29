@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Script from "next/script";
 import { Form } from "./Form";
 import { YouTubeVideo } from "../Video/YouTubeVideo";
@@ -8,6 +8,7 @@ export const TaveForm = ({ youtubeVideoId }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isSubmissionComplete, setIsSubmissionComplete] = useState(false);
+  const thankYouRef = useRef();
   const leadFields = [
     {
       type: "Text",
@@ -139,6 +140,12 @@ export const TaveForm = ({ youtubeVideoId }) => {
     return false;
   };
 
+  useEffect(() => {
+    if (isSubmissionComplete) {
+      thankYouRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [isSubmissionComplete]);
+
   return (
     <div>
       {!isSubmissionComplete && (
@@ -154,7 +161,12 @@ export const TaveForm = ({ youtubeVideoId }) => {
 
       {isSubmissionComplete && (
         <div className="mb-14">
-          <p className="font-sans text-darkPurple text-2xl leading-9 text-center max-w-xl mx-auto mb-14">Thank you!</p>
+          <p
+            className="font-sans text-darkPurple text-2xl leading-9 text-center max-w-xl mx-auto mb-14"
+            ref={thankYouRef}
+          >
+            Thank you!
+          </p>
 
           {youtubeVideoId && <YouTubeVideo videoId={youtubeVideoId} />}
 
