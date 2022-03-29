@@ -4,30 +4,27 @@ import { FieldContainer } from "./FieldContainer";
 import { FieldLabel } from "./FieldLabel";
 import { FieldError } from "./FieldError";
 
-export const TextInput = React.forwardRef((props, ref) => {
+export const Textarea = React.forwardRef((props, ref) => {
   return (
-    <FieldContainer type={props.type} isError={props.errors[props.id]} modifier={props.modifier}>
+    <FieldContainer isError={props.errors[props.id]} modifier={props.modifier}>
       <FieldLabel id={props.id} text={props.label} />
-      <input
-        className="focus:outline-none text-darkerBlue text-left text-xl font-serif w-full bg-transparent"
+      <textarea
+        className="focus:outline-none text-darkerBlue text-xl font-serif w-full h-48 bg-transparent"
         id={props.id}
-        type={props.type.toLowerCase()}
         ref={ref}
         aria-invalid={props.errors[props.id] ? true : false}
         {...props}
       />
-      {props.errors[props.id] && (
-        <FieldError error={props.errors[props.id]} customMessage={props.customValidationMessage} />
-      )}
+      {props.errors[props.id] && <FieldError error={props.errors[props.id]} />}
     </FieldContainer>
   );
 });
 
-TextInput.propTypes = {
+Textarea.propTypes = {
   isError: PropTypes.bool,
   error: PropTypes.string,
   label: PropTypes.string,
   id: PropTypes.string,
 };
 
-TextInput.displayName = "TextInput";
+Textarea.displayName = "Textarea";

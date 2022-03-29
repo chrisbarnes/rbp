@@ -1,0 +1,5 @@
+.input input::-webkit-date-and-time-value {
+  text-align: left;
+  width: 100%;
+  height: auto;
+}
