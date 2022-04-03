@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import Script from "next/script";
 import { Form } from "./Form";
 import { YouTubeVideo } from "../Video/YouTubeVideo";
-import { Button } from "../Button/Button";
+import { CalendlyLink } from "../Button/CalendlyLink";
 
 export const TaveForm = ({ youtubeVideoId }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -133,13 +132,6 @@ export const TaveForm = ({ youtubeVideoId }) => {
     }
   };
 
-  const handleCalendlyClick = () => {
-    Calendly.initPopupWidget({
-      url: "https://calendly.com/rae-barnes/call-consultations?text_color=5d3754&primary_color=141b4d",
-    });
-    return false;
-  };
-
   useEffect(() => {
     if (isSubmissionComplete) {
       thankYouRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -170,14 +162,7 @@ export const TaveForm = ({ youtubeVideoId }) => {
 
           {youtubeVideoId && <YouTubeVideo videoId={youtubeVideoId} />}
 
-          <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
-          <Script src="https://assets.calendly.com/assets/external/widget.js" />
-
-          <div className="my-14 text-center">
-            <Button type="button" size="large" onClick={handleCalendlyClick}>
-              Schedule a consultation
-            </Button>
-          </div>
+          <CalendlyLink buttonText="Schedule a consultation" />
         </div>
       )}
     </div>

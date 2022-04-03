@@ -35,6 +35,7 @@ export const ProcessStep = ({ stepNum, heading, description, image }) => {
     "max-w-xs": isEvenStep,
     "max-w-sm": stepNum > 1,
     "pr-4": isEvenStep,
+    "mr-16": isEvenStep,
   });
 
   return (
@@ -51,11 +52,7 @@ export const ProcessStep = ({ stepNum, heading, description, image }) => {
         />
       </div>
       <div className={textWrapperClasses}>
-        <ProcessStepHeading
-          stepNum={stepNum}
-          heading={heading}
-          isNumberRight={isEvenStep}
-        />
+        <ProcessStepHeading stepNum={stepNum} heading={heading} isNumberRight={isEvenStep} />
         <p className={textClasses}>{description}</p>
       </div>
     </div>

@@ -15,13 +15,15 @@ export const SplitSection = ({ heading, children, link, linkText }) => {
           {children}
         </div>
       </div>
-      <div className="text-center mt-8">
-        <Link href={`/${link}`} passHref>
-          <Button type="link" size="large">
-            {linkText}
-          </Button>
-        </Link>
-      </div>
+      {link && linkText && (
+        <div className="text-center mt-8">
+          <Link href={`/${link}`} passHref>
+            <Button type="link" size="large">
+              {linkText}
+            </Button>
+          </Link>
+        </div>
+      )}
     </section>
   );
 };

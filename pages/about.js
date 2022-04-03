@@ -49,52 +49,18 @@ export default function Page({ page, navigation, instagramPosts, preview }) {
     },
   ];
 
-  const processSteps = [
-    {
-      heading: "The Planning",
-      description:
-        "Once you have booked, we will set up a time 4-6 weeks before your session to plan.  This can be done in your home or over Zoom. During this time, we chat about what to wear, what you might want to order, and what we can expect from each other during the session.",
-      image: {
-        title: "test image",
-        url: "/images/street-family.jpg",
-        width: "380px",
-        height: "570px",
-      },
+  const steps = page?.fields?.process.map((step, index) => ({
+    heading: step?.fields?.heading,
+    description: step?.fields?.description,
+    image: {
+      title: step?.fields?.image?.fields?.title,
+      url: `https:${step?.fields?.image?.fields?.file?.url}`,
+      width: index === 3 ? "718px" : "380px",
+      height: index === 3 ? "478px" : "570px",
     },
-    {
-      heading: "The Session",
-      description:
-        "On the day of the session, you just have to show up dressed and fed (no hangry toddlers please), and we'll take it from there. Don't worry if everything isn't perfect, that's real life. We will do everything we can to keep everyone relaxed and having fun.",
-      image: {
-        title: "test image",
-        url: "/images/street-family.jpg",
-        width: "380px",
-        height: "570px",
-      },
-    },
-    {
-      heading: "The Ordering",
-      description:
-        "Within a week of your session, we will have your ordering appointment. This is when you'll be able to see the proofs and purchase what you love most. Since we do not offer online ordering upfront, all decision makers should be present.",
-      image: {
-        title: "test image",
-        url: "/images/street-family.jpg",
-        width: "380px",
-        height: "570px",
-      },
-    },
-    {
-      heading: "The Delivery",
-      description:
-        "Your order is custom and handmade. It may take 6-10 weeks to complete, but we promise it is worth the wait. All wall galleries and large wall art includes complimentary and professional installation for you.",
-      image: {
-        title: "test image",
-        url: "/images/street-family.jpg",
-        width: "718px",
-        height: "478px",
-      },
-    },
-  ];
+  }));
+
+  console.log(page);
 
   return (
     <Layout
@@ -124,9 +90,7 @@ export default function Page({ page, navigation, instagramPosts, preview }) {
           <section id="about-rae" className="max-w-4xl mx-auto py-32 px-5">
             <ContentfulRichText
               content={page?.fields?.secondaryContent}
-              altParagraph={(node, children) => (
-                <p className="text-xl mb-8">{children}</p>
-              )}
+              altParagraph={(node, children) => <p className="text-xl mb-8">{children}</p>}
               altImage={(node, children) => {
                 // Force webp as the default image format here
                 let imageSrc = `https:${node?.data?.target?.fields?.file?.url}?fm=webp`;
@@ -150,10 +114,7 @@ export default function Page({ page, navigation, instagramPosts, preview }) {
               }}
             />
             <div className="text-center mt-16">
-              <Link
-                href={`/${page?.fields?.secondaryContentCallToActionLink?.fields?.slug}`}
-                passHref
-              >
+              <Link href={`/${page?.fields?.secondaryContentCallToActionLink?.fields?.slug}`} passHref>
                 <Button type="link" size="large">
                   {page?.fields?.secondaryContentCallToActionText}
                 </Button>
@@ -162,11 +123,7 @@ export default function Page({ page, navigation, instagramPosts, preview }) {
           </section>
           <CalloutBoxes items={values} />
           <section id="about-experience" className="mb-20">
-            <SectionIntro
-              id="about-experience"
-              heading={page?.fields?.tertiaryContentHeading}
-              headingType="h2"
-            >
+            <SectionIntro id="about-experience" heading={page?.fields?.tertiaryContentHeading} headingType="h2">
               <ContentfulRichText content={page?.fields?.tertiaryContent} />
             </SectionIntro>
           </section>
@@ -175,7 +132,15 @@ export default function Page({ page, navigation, instagramPosts, preview }) {
               <YouTubeVideo videoId={page?.fields?.youtubeVideoId} />
             </div>
           )}
-          <Process steps={processSteps} />
+
+          <Process
+            steps={steps}
+            footerDescription={page?.fields?.processFooterMessage}
+            isFooterCtaCalendarLink={page?.fields?.isProcessFooterCtaLinkToCalendar}
+            footerCtaText={page?.fields?.processFooterCallToActionText}
+            footerCtaLink={`/${page?.fields?.processFooterCallToActionLink?.fields?.slug}`}
+          />
+
           {page?.fields?.clientQuote?.fields?.quote && (
             <PullQuote
               author={page?.fields?.clientQuote?.fields?.author}
@@ -183,17 +148,11 @@ export default function Page({ page, navigation, instagramPosts, preview }) {
             />
           )}
           <section id="about-artwork" className="mb-20">
-            <SectionIntro
-              id="about-artwork"
-              heading={page?.fields?.quaternaryContentHeading}
-              headingType="h2"
-            >
+            <SectionIntro id="about-artwork" heading={page?.fields?.quaternaryContentHeading} headingType="h2">
               <ContentfulRichText content={page?.fields?.quaternaryContent} />
             </SectionIntro>
           </section>
-          <ImageGrid
-            images={getContentfulImageDataFromArray(page?.fields?.imageGrid)}
-          />
+          <ImageGrid images={getContentfulImageDataFromArray(page?.fields?.imageGrid)} />
         </>
       )}
     </Layout>
