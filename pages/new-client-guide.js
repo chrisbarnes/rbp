@@ -6,14 +6,33 @@ import { SectionIntro } from "../components/Typography/SectionIntro";
 import { PullQuote } from "../components/Typography/PullQuote";
 import { SplitSection } from "../components/Typography/SplitSection";
 import { ContentfulRichText } from "../components/Typography/ContentfulRichText";
+import { Products } from "../components/Products/Products";
+import { Process } from "../components/Typography/Process";
 
 export default function NewClientGuidePage({ page, navigation, preview }) {
-  console.log(page);
   const mainContentImages = page?.fields?.mainContentImages.map((image) => ({
     url: image?.fields?.file?.url,
     title: image?.fields?.title,
   }));
-  console.log(mainContentImages);
+  const products = page?.fields?.productHighlights.map((product) => ({
+    image: {
+      url: product?.fields?.image?.fields?.file?.url,
+      title: product?.fields?.image?.fields?.title,
+    },
+    heading: product?.fields?.heading,
+    subHeading: product?.fields?.subHeading,
+    content: product?.fields?.content,
+  }));
+  const steps = page?.fields?.process.map((step, index) => ({
+    heading: step?.fields?.heading,
+    description: step?.fields?.description,
+    image: {
+      title: step?.fields?.image?.fields?.title,
+      url: `https:${step?.fields?.image?.fields?.file?.url}`,
+      width: index === 3 ? "718px" : "380px",
+      height: index === 3 ? "478px" : "570px",
+    },
+  }));
 
   return (
     <Layout
@@ -75,12 +94,26 @@ export default function NewClientGuidePage({ page, navigation, preview }) {
             />
           </SplitSection>
 
+          {products && products.length && <Products products={products} />}
+
           {page?.fields?.clientQuote?.fields?.quote && (
             <PullQuote
               author={page?.fields?.clientQuote?.fields?.author}
               quote={page?.fields?.clientQuote?.fields?.quote}
             />
           )}
+
+          <SectionIntro heading={page?.fields?.processHeading} headingType="h2">
+            {documentToReactComponents(page?.fields?.processDescription)}
+          </SectionIntro>
+
+          <Process
+            steps={steps}
+            footerDescription={page?.fields?.processFooterMessage}
+            isFooterCtaCalendarLink={page?.fields?.isProcessFooterCtaLinkToCalendar}
+            footerCtaText={page?.fields?.processFooterCallToActionText}
+            footerCtaLink={`/${page?.fields?.processFooterCallToActionLink?.fields?.slug}`}
+          />
         </>
       )}
     </Layout>
