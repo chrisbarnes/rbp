@@ -10,7 +10,7 @@ export const Process = ({ steps, footerDescription, footerCtaText, isFooterCtaCa
         <ProcessStep key={index} stepNum={index} {...step} />
       ))}
       <div className="text-center mt-40 max-w-3xl mx-auto">
-        <p className="text-green text-4xl text-center font-serif mb-16">{footerDescription}</p>
+        {footerDescription && <p className="text-green text-4xl text-center font-serif mb-16">{footerDescription}</p>}
         {!isFooterCtaCalendarLink && footerCtaLink && footerCtaText && (
           <Link href={footerCtaLink} passHref>
             <Button type="link" size="large">
