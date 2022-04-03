@@ -2,14 +2,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 import Image from "next/image";
 
-export const ContentfulRichText = ({
-  content,
-  altParagraph,
-  altUl,
-  altLink,
-  altImage,
-  altH3,
-}) => {
+export const ContentfulRichText = ({ content, altParagraph, altUl, altLink, altImage, altH3 }) => {
   const options = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: altImage
@@ -35,21 +28,15 @@ export const ContentfulRichText = ({
               </span>
             );
           },
-      [BLOCKS.HEADING_3]: altH3
-        ? altH3
-        : (node, children) => (
-            <h3 className="text-green text-4xl mb-8">{children}</h3>
-          ),
-      [BLOCKS.PARAGRAPH]: altParagraph
-        ? altParagraph
-        : (node, children) => <p className="text-2xl">{children}</p>,
+      [BLOCKS.HEADING_3]: altH3 ? altH3 : (node, children) => <h3 className="text-green text-4xl mb-8">{children}</h3>,
+      [BLOCKS.PARAGRAPH]: altParagraph ? altParagraph : (node, children) => <p className="text-2xl">{children}</p>,
       [BLOCKS.UL_LIST]: altUl
         ? altUl
         : (node, children) => {
             return (
-              <ul className="">
+              <ul className="list-disc">
                 {children.map((item) => (
-                  <li key={item.key}>
+                  <li className="text-darkerBlue text-xl mb-1" key={item.key}>
                     {item.props.children[0].props.children[0]}
                   </li>
                 ))}
