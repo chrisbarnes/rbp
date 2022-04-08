@@ -66,7 +66,7 @@ export const HeaderLinks = ({ links }) => {
           </Link>
           <button
             type="button"
-            className={`md:hidden fixed top-8 right-8 z-10 w-6 h-5 after:transition-transform after:content-[' '] after:absolute after:top-0 after:left-0 after:w-full after:h-0.5 after:origin-left after:bg-darkPurple before:transition-transform before:content-[' '] before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5 before:origin-left before:bg-darkPurple ${navToggleClasses}`}
+            className={`md:hidden fixed top-5 right-5 z-10 w-6 h-5 after:transition-transform after:content-[' '] after:absolute after:top-0 after:left-0 after:w-full after:h-0.5 after:origin-left after:bg-darkPurple before:transition-transform before:content-[' '] before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5 before:origin-left before:bg-darkPurple ${navToggleClasses}`}
             onClick={handleMobileNavToggle}
           >
             <span
