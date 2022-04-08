@@ -25,4 +25,10 @@ Header.args = {
     { text: "Blog", url: "/link2" },
     { text: "Contact", url: "/link2" },
   ],
+  parameters: {
+    nextRouter: {
+      path: "/link1",
+      asPath: "/link1",
+    },
+  },
 };
