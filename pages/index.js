@@ -14,28 +14,26 @@ import { getInstagramPosts } from "../lib/instagram";
 import { BasicContentBlock } from "../components/Typography/BasicContentBlock";
 
 export default function Home({ page, navigation, instagramPosts, preview }) {
-  const linkedImageGridItems = page?.fields?.linkedImageGrid.map(
-    (linkedImageGridItem) => {
-      if (linkedImageGridItem?.fields?.image) {
-        return {
-          image: {
-            url: linkedImageGridItem?.fields?.image?.fields?.file?.url,
-            title: linkedImageGridItem?.fields?.image?.fields?.title,
-          },
-          link: `/${linkedImageGridItem?.fields?.link?.fields?.slug}`,
-        };
-      }
-
-      if (!linkedImageGridItem?.fields?.image) {
-        return {
-          heading: linkedImageGridItem?.fields?.heading,
-          description: linkedImageGridItem?.fields?.description,
-          link: `/${linkedImageGridItem?.fields?.link?.fields.slug}`,
-          linkText: linkedImageGridItem?.fields?.linkText,
-        };
-      }
+  const linkedImageGridItems = page?.fields?.linkedImageGrid.map((linkedImageGridItem) => {
+    if (linkedImageGridItem?.fields?.image) {
+      return {
+        image: {
+          url: linkedImageGridItem?.fields?.image?.fields?.file?.url,
+          title: linkedImageGridItem?.fields?.image?.fields?.title,
+        },
+        link: `/${linkedImageGridItem?.fields?.link?.fields?.slug}`,
+      };
     }
-  );
+
+    if (!linkedImageGridItem?.fields?.image) {
+      return {
+        heading: linkedImageGridItem?.fields?.heading,
+        description: linkedImageGridItem?.fields?.description,
+        link: `/${linkedImageGridItem?.fields?.link?.fields.slug}`,
+        linkText: linkedImageGridItem?.fields?.linkText,
+      };
+    }
+  });
 
   return (
     <Layout
@@ -67,32 +65,23 @@ export default function Home({ page, navigation, instagramPosts, preview }) {
           >
             <ContentfulRichText
               content={page?.fields?.secondaryContent}
-              altParagraph={(node, children) => (
-                <p className="mb-8">{children}</p>
-              )}
+              altParagraph={(node, children) => <p className="mb-8">{children}</p>}
             />
           </SplitSection>
-          <LinkedImageGridWithContent
-            linkedImageGridItems={linkedImageGridItems}
-          />
+          <LinkedImageGridWithContent linkedImageGridItems={linkedImageGridItems} />
           <div className="text-center mt-8 mb-28">
-            <Link
-              href={`/${page?.fields?.linkedImageGridCallToActionLink?.fields?.slug}`}
-              passHref
-            >
+            <Link href={`/${page?.fields?.linkedImageGridCallToActionLink?.fields?.slug}`} passHref>
               <Button type="link" size="large">
                 {page?.fields?.linkedImageGridCallToActionText}
               </Button>
             </Link>
           </div>
           <section className="max-w-4xl mx-auto mb-28">
-            <div className="flex">
-              <div className="basis-1/2 text-center px-11">
+            <div className="flex flex-col md:flex-row">
+              <div className="basis-1/2 text-center px-11 mb-16 md:mb-0">
                 <BasicContentBlock
                   richText={page?.fields?.tertiaryContent}
-                  linkSlug={
-                    page?.fields?.tertiaryContentCallToActionLink?.fields?.slug
-                  }
+                  linkSlug={page?.fields?.tertiaryContentCallToActionLink?.fields?.slug}
                   linkText={page?.fields?.tertiaryContentCallToActionText}
                 />
               </div>
