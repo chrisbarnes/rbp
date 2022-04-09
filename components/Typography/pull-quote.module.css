@@ -1,5 +1,5 @@
 .wrap {
-  @apply bg-darkerBlue mb-32 py-16 text-center text-lavender relative;
+  @apply bg-darkerBlue mb-32 px-6 py-16 text-center text-lavender relative;
 }
 
 .wrap::before,
