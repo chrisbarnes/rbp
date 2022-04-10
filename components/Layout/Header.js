@@ -10,11 +10,7 @@ export const Header = ({ items, image, isStorybook, showLogo }) => {
   const sentinelRef = useRef();
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([e]) =>
-        fixedNavRef?.current?.classList.toggle(
-          styles["fixed-nav-stuck"],
-          e.intersectionRatio < 1
-        ),
+      ([e]) => fixedNavRef?.current?.classList.toggle(styles["fixed-nav-stuck"], e.intersectionRatio < 1),
       { threshold: [1] }
     );
 
@@ -33,16 +29,11 @@ export const Header = ({ items, image, isStorybook, showLogo }) => {
         <div className={styles["fixed-nav"]} ref={fixedNavRef}>
           <HeaderLinks links={items} />
         </div>
-        <div className="w-full h-screen overflow-hidden relative">
-          {image && image.url && (
-            <HeaderImage image={image} preserveUrl={isStorybook} />
-          )}
+        <div className="w-full md:h-screen overflow-hidden relative">
+          {image && image.url && <HeaderImage image={image} preserveUrl={isStorybook} />}
         </div>
         {showLogo && (
-          <div
-            className="w-40 h-32 relative"
-            style={{ left: "calc(50% - 5rem)", marginTop: "-67px" }}
-          >
+          <div className="w-40 h-32 relative" style={{ left: "calc(50% - 5rem)", marginTop: "-67px" }}>
             <Logo />
           </div>
         )}
