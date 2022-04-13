@@ -8,12 +8,10 @@ export const ImageCallout = ({ image, content }) => {
   // Use a super low quality jpg as the blur data url
   let blurSrc = `https:${image.url}?fm=jpg&q=1`;
 
-  const p = (node, children) => (
-    <p className="text-2xl leading-10">{children}</p>
-  );
+  const p = (node, children) => <p className="text-2xl leading-10">{children}</p>;
 
   return (
-    <section className="flex">
+    <section className="flex flex-col md:flex-row">
       <div className="basis-7/12 relative">
         <Image
           className="h-full"

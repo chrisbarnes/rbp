@@ -99,7 +99,7 @@ export default function Page({ page, navigation, instagramPosts, preview }) {
                 let blurSrc = `https:${node?.data?.target?.fields?.file?.url}?fm=jpg&q=1`;
 
                 return (
-                  <span className="max-w-sm float-right pl-7 pb-7">
+                  <span className="max-w-sm block md:inline md:float-right md:pl-7 pb-7">
                     <Image
                       alt={node?.data?.target?.fields?.title}
                       src={imageSrc}

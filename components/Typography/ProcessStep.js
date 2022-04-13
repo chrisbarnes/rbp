@@ -11,31 +11,36 @@ export const ProcessStep = ({ stepNum, heading, description, image }) => {
   const isEvenStep = (stepNum + 1) % 2 === 0;
   const wrapperClasses = classNames({
     flex: true,
-    "flex-row-reverse": isEvenStep,
-    "-mt-48": stepNum === 1,
-    "-mt-24": stepNum === 2,
-    "-mt-36": stepNum === 3,
+    "flex-col": true,
+    "md:flex-row": true,
+    "md:flex-row-reverse": isEvenStep,
+    "md:-mt-48": stepNum === 1,
+    "md:-mt-24": stepNum === 2,
+    "md:-mt-36": stepNum === 3,
     "items-end": stepNum === 3,
   });
   const imageContainerClasses = classNames({
-    "max-w-sm": stepNum < 3,
+    "md:max-w-sm": stepNum < 3,
     "max-w-3xl": stepNum === 3,
     "basis-4/12": stepNum < 3,
     "basis-7/12": stepNum === 3,
-    "mr-14": !isEvenStep,
-    "ml-14": isEvenStep,
+    "md:mr-14": !isEvenStep,
+    "md:ml-14": isEvenStep,
+    "mb-14": true,
+    "md:mb-0": true,
   });
   const textWrapperClasses = classNames({
-    "-mr-24": isEvenStep,
-    "-mb-20": stepNum === 3,
+    "md:-mr-24": isEvenStep,
+    "md:-mb-20": stepNum === 3,
   });
   const textClasses = classNames({
     "text-xl": true,
     "max-w-2xl": stepNum === 0,
-    "max-w-xs": isEvenStep,
-    "max-w-sm": stepNum > 1,
+    "md:max-w-xs": isEvenStep,
+    "md:max-w-sm": stepNum > 1,
     "pr-4": isEvenStep,
-    "mr-16": isEvenStep,
+    "px-4": true,
+    "md:mr-16": isEvenStep,
   });
 
   return (
