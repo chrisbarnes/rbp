@@ -14,6 +14,8 @@ import { getInstagramPosts } from "../lib/instagram";
 import { BasicContentBlock } from "../components/Typography/BasicContentBlock";
 
 export default function Home({ page, navigation, instagramPosts, preview }) {
+  console.log(page.fields.linkedImageGrid);
+
   const linkedImageGridItems = page?.fields?.linkedImageGrid.map((linkedImageGridItem) => {
     if (linkedImageGridItem?.fields?.image) {
       return {
@@ -29,7 +31,7 @@ export default function Home({ page, navigation, instagramPosts, preview }) {
       return {
         heading: linkedImageGridItem?.fields?.heading,
         description: linkedImageGridItem?.fields?.description,
-        link: `/${linkedImageGridItem?.fields?.link?.fields.slug}`,
+        link: `/${linkedImageGridItem?.fields?.link?.fields?.slug}`,
         linkText: linkedImageGridItem?.fields?.linkText,
       };
     }
