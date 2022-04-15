@@ -25,7 +25,7 @@ export const LinkedImageGridWithContent = ({ linkedImageGridItems, isStorybook }
           if (linkedImageGridItem.heading) {
             return (
               <div
-                className="md:w-1/3 aspect-square flex flex-col justify-center p-8 text-center relative z-10 before:content-[' '] before:absolute before:top-0 before:right-0 before:bottom-0 before:left-0 before:bg-grayPurple before:-z-10 before:scale-110"
+                className="md:w-1/3 aspect-square flex flex-col justify-center p-8 text-center relative z-10 before:content-[' '] before:absolute before:top-0 before:right-0 before:bottom-0 before:left-0 before:bg-grayPurple before:-z-10 md:before:scale-110"
                 key={`linked-grid-content-${index}`}
               >
                 <h2 className="mb-8">{linkedImageGridItem.heading}</h2>
