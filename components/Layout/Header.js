@@ -29,7 +29,7 @@ export const Header = ({ items, image, isStorybook, showLogo }) => {
         <div className={styles["fixed-nav"]} ref={fixedNavRef}>
           <HeaderLinks links={items} />
         </div>
-        <div className="w-full md:h-screen overflow-hidden relative">
+        <div className="w-full lg:h-screen overflow-hidden relative">
           {image && image.url && <HeaderImage image={image} preserveUrl={isStorybook} />}
         </div>
         {showLogo && (
