@@ -17,6 +17,8 @@ export default function Page({ page, navigation, subNavigation, instagramPosts, 
   const gridImages = page?.fields?.imageGrid.map((image) => ({
     url: image?.fields?.file?.url,
     title: image?.fields?.title,
+    width: image?.fields?.file?.details?.image?.width,
+    height: image?.fields?.file?.details?.image?.height,
   }));
 
   return (

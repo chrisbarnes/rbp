@@ -19,11 +19,13 @@ export const MasonryGridImage = ({ image, preserveUrl }) => {
   }
 
   return (
-    <div className="h-full relative">
+    <div className="mb-5">
       <Image
         alt={image.title}
         src={imageSrc}
-        layout="fill"
+        layout="responsive"
+        width={image.width}
+        height={image.height}
         placeholder="blur"
         blurDataURL={blurSrc}
       />
