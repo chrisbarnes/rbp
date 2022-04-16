@@ -13,13 +13,7 @@ import { getInstagramPosts } from "../../lib/instagram";
 import { BasicContentBlock } from "../../components/Typography/BasicContentBlock";
 import { MasonryGrid } from "../../components/Images/MasonryGrid";
 
-export default function Page({
-  page,
-  navigation,
-  subNavigation,
-  instagramPosts,
-  preview,
-}) {
+export default function Page({ page, navigation, subNavigation, instagramPosts, preview }) {
   const gridImages = page?.fields?.imageGrid.map((image) => ({
     url: image?.fields?.file?.url,
     title: image?.fields?.title,
@@ -47,9 +41,7 @@ export default function Page({
           <div className="mb-24">
             <BasicContentBlock
               richText={page?.fields?.secondaryContent}
-              linkSlug={
-                page?.fields?.secondaryContentCallToActionLink?.fields?.slug
-              }
+              linkSlug={page?.fields?.secondaryContentCallToActionLink?.fields?.slug}
               linkText={page?.fields?.secondaryContentCallToActionText}
             />
           </div>

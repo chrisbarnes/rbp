@@ -30,11 +30,13 @@ export const LinkedImageGridWithContent = ({ linkedImageGridItems, isStorybook }
               >
                 <h2 className="mb-8">{linkedImageGridItem.heading}</h2>
                 <h3>{linkedImageGridItem.description}</h3>
-                <Link href={linkedImageGridItem.link} passHref>
-                  <a className="uppercase text-darkPurple font-bold no-underline" href={linkedImageGridItem.link}>
-                    {linkedImageGridItem.linkText}
-                  </a>
-                </Link>
+                {linkedImageGridItem.link && linkedImageGridItem.linkText && (
+                  <Link href={linkedImageGridItem.link} passHref>
+                    <a className="uppercase text-darkPurple font-bold no-underline" href={linkedImageGridItem.link}>
+                      {linkedImageGridItem.linkText}
+                    </a>
+                  </Link>
+                )}
               </div>
             );
           }

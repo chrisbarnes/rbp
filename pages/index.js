@@ -14,14 +14,14 @@ import { getInstagramPosts } from "../lib/instagram";
 import { BasicContentBlock } from "../components/Typography/BasicContentBlock";
 
 export default function Home({ page, navigation, instagramPosts, preview }) {
-  const linkedImageGridItems = page?.fields?.linkedImageGrid.map((linkedImageGridItem) => {
+  const linkedImageGridItems = page?.fields?.linkedImageGrid.map((linkedImageGridItem, index) => {
     if (linkedImageGridItem?.fields?.image) {
       return {
         image: {
           url: linkedImageGridItem?.fields?.image?.fields?.file?.url,
           title: linkedImageGridItem?.fields?.image?.fields?.title,
         },
-        link: `/${linkedImageGridItem?.fields?.link?.fields?.slug}`,
+        link: page.linkedGrid && page.linkedGrid[index] ? page.linkedGrid[index].slug : "/not-found",
       };
     }
 
@@ -29,7 +29,7 @@ export default function Home({ page, navigation, instagramPosts, preview }) {
       return {
         heading: linkedImageGridItem?.fields?.heading,
         description: linkedImageGridItem?.fields?.description,
-        link: `/${linkedImageGridItem?.fields?.link?.fields?.slug}`,
+        link: page.linkedGrid && page.linkedGrid[index] ? page.linkedGrid[index].slug : "/not-found",
         linkText: linkedImageGridItem?.fields?.linkText,
       };
     }
