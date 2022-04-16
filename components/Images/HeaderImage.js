@@ -23,6 +23,7 @@ export const HeaderImage = ({ image, preserveUrl }) => {
     <Image
       alt={image.title}
       src={imageSrc}
+      quality="100"
       layout="responsive"
       width={1280}
       height={768}
