@@ -7,9 +7,6 @@ export const MasonryGrid = ({ images, preview }) => {
   }
 
   const imageGroups = chunkArrayInGroups(images, Math.ceil(images.length / 3));
-
-  console.log("imagegroups", imageGroups);
-
   const col1 = imageGroups[0] && imageGroups[0].length ? imageGroups[0] : null;
   const col2 = imageGroups[1] && imageGroups[1].length ? imageGroups[1] : null;
   const col3 = imageGroups[2] && imageGroups[2].length ? imageGroups[2] : null;
