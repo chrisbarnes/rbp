@@ -11,9 +11,11 @@ export const Layout = ({
   seoTitle,
   seoDescription,
   headerImage,
+  instagramPosts,
+  isHome,
 }) => {
   return (
-    <>
+    <div>
       <Head>
         <title>
           {seoTitle
@@ -23,10 +25,12 @@ export const Layout = ({
         {seoDescription && <meta name="description" content={seoDescription} />}
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header items={header} image={headerImage} />
+      <Header items={header} image={headerImage} showLogo={isHome} />
       {isPreview && <PreviewBanner />}
-      <main>{children}</main>
-      <Footer items={footer} />
-    </>
+      <div className="max-w-7xl mx-auto">
+        <main>{children}</main>
+      </div>
+      <Footer items={footer} instagramPosts={instagramPosts} />
+    </div>
   );
 };

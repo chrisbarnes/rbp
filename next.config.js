@@ -6,9 +6,109 @@
 const { withSentryConfig } = require("@sentry/nextjs");
 
 const moduleExports = {
+  swcMinify: false,
   reactStrictMode: true,
   images: {
-    domains: ["images.ctfassets.net"],
+    domains: ["images.ctfassets.net", "scontent-lga3-1.cdninstagram.com", "scontent-atl3-2.cdninstagram.com"],
+  },
+  async redirects() {
+    return [
+      {
+        source: "/about-rae",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/clients-for-life",
+        destination: "/clients-for-life/family-1",
+        permanent: true,
+      },
+      {
+        source: "/portfolio",
+        destination: "/portfolio/babies",
+        permanent: true,
+      },
+      {
+        source: "/praise/",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/blog/",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/blog/:slug",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/families/:slug",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/babies/:slug",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/lifestyle/:slug",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/personal/:slug",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/weddings/:slug",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/products/:slug",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/news/:slug",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/for-moms/:slug",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/for-photographers/:slug",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/couples/:slug",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/seniors/:slug",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/category/:slug",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/tag/:slug",
+        destination: "/",
+        permanent: true,
+      },
+    ];
   },
 };
 

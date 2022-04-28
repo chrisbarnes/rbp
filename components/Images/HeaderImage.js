@@ -23,9 +23,10 @@ export const HeaderImage = ({ image, preserveUrl }) => {
     <Image
       alt={image.title}
       src={imageSrc}
+      quality="100"
       layout="responsive"
-      width={700}
-      height={475}
+      width={1280}
+      height={768}
       placeholder="blur"
       blurDataURL={blurSrc}
       priority

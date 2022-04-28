@@ -1,9 +1,9 @@
 import React from "react";
 
-export const InstagramLogo = () => {
+export const InstagramLogo = ({ color }) => {
   return (
     <svg
-      className="w-full h-auto max-h-full fill-darkBlue"
+      className={`w-full h-auto max-h-full ${color}`}
       xmlSpace="preserve"
       viewBox="280.89 393.69 20.14 20.14"
     >

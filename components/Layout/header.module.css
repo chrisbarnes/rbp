@@ -1,0 +1,7 @@
+.fixed-nav {
+  @apply top-0 w-full z-20 fixed bg-lightPurple/60 hover:bg-white focus-within:bg-white transition-colors;
+}
+
+.fixed-nav-stuck {
+  @apply bg-white opacity-100;
+}
