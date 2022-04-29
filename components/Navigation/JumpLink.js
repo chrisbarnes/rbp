@@ -12,7 +12,7 @@ export const JumpLink = ({ text, section }) => {
 
   return (
     <a
-      className="font-sans uppercase text-plum text-sm px-7 no-underline"
+      className="font-sans uppercase text-plum text-sm px-7 no-underline focus:outline focus:outline-2 focus:outline-plum"
       href={`#${section}`}
       ref={linkRef}
       onClick={handleClick}

@@ -19,6 +19,7 @@ export const Button = React.forwardRef(({ type, size, isDisabled, children, ...r
     "leading-none": true,
     "no-underline": true,
     "inline-block": true,
+    "focus:outline focus:outline-2 focus:outline-plum focus:outline-offset-2": true,
   });
 
   if (type === "link") {

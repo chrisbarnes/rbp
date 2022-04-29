@@ -60,7 +60,7 @@ export const HeaderLinks = ({ links }) => {
       <div className="container mx-auto md:flex justify-around items-center">
         <div className="lg:grow md:order-2">
           <Link href="/">
-            <a className="block w-40 lg:w-56 m-auto px-3 py-5">
+            <a className="block w-40 lg:w-56 m-auto px-3 py-5 focus:outline focus:outline-2 focus:outline-plum">
               <HeaderLogo />
             </a>
           </Link>
@@ -77,7 +77,7 @@ export const HeaderLinks = ({ links }) => {
         </div>
 
         <div
-          className={`fixed top-0 right-0 left-0 bottom-0 w-full transition-transform px-6 pt-20 pb-12 bg-white/95 ${mobileNavClasses}`}
+          className={`md:hidden fixed top-0 right-0 left-0 bottom-0 w-full transition-transform px-6 pt-20 pb-12 bg-white/95 ${mobileNavClasses}`}
         >
           <ul className="text-right">
             {links.map((link) => (

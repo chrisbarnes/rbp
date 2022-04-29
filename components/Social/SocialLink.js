@@ -11,6 +11,7 @@ export const SocialLink = ({ type }) => {
           href="https://www.facebook.com/raebarnesphoto"
           rel="noreferrer"
           target="_blank"
+          className="w-6 h-6 inline-block focus:outline focus:outline-2 focus:outline-plum"
         >
           <FacebookLogo color="fill-darkBlue" />
         </a>
@@ -22,6 +23,7 @@ export const SocialLink = ({ type }) => {
           href="https://www.pinterest.com/raebarnes"
           rel="noreferrer"
           target="_blank"
+          className="w-6 h-6 inline-block focus:outline focus:outline-2 focus:outline-plum"
         >
           <PinterestLogo color="fill-darkBlue" />
         </a>
@@ -33,6 +35,7 @@ export const SocialLink = ({ type }) => {
           href="https://www.instagram.com/raebarnesphoto/"
           rel="noreferrer"
           target="_blank"
+          className="w-6 h-6 inline-block focus:outline focus:outline-2 focus:outline-plum"
         >
           <InstagramLogo color="fill-darkBlue" />
         </a>
