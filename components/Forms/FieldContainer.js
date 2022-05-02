@@ -17,6 +17,7 @@ export const FieldContainer = ({ isError, modifier, children }) => {
     "flex-auto": true,
     "-ml-px": true,
     "-mt-px": true,
+    "focus-within:outline focus-within:outline-2 focus-within:outline-plum focus-within:outline-offset-[-2px] focus-within:z-10": true,
   });
   const inlineStyles = isError ? { outline: "3px solid #141B4D", outlineOffset: "-3px" } : {};
 

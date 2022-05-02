@@ -10,7 +10,10 @@ export const LinkedImageGridWithContent = ({ linkedImageGridItems, isStorybook }
           if (linkedImageGridItem.image) {
             return (
               <Link href={linkedImageGridItem.link} key={`linked-grid-image-${index}`} passHref>
-                <a href={linkedImageGridItem.link} className="w-full md:w-1/3 aspect-square">
+                <a
+                  href={linkedImageGridItem.link}
+                  className="w-full md:w-1/3 aspect-square focus:outline focus:outline-4 focus:outline-plum focus:z-20 focus:outline-offset-2"
+                >
                   <GridImage
                     key={`grid-image-${index}`}
                     image={linkedImageGridItem.image}
@@ -32,7 +35,10 @@ export const LinkedImageGridWithContent = ({ linkedImageGridItems, isStorybook }
                 <h3>{linkedImageGridItem.description}</h3>
                 {linkedImageGridItem.link && linkedImageGridItem.linkText && (
                   <Link href={linkedImageGridItem.link} passHref>
-                    <a className="uppercase text-darkPurple font-bold no-underline" href={linkedImageGridItem.link}>
+                    <a
+                      className="uppercase text-darkPurple font-bold no-underline focus:outline focus:outline-2 focus:outline-plum"
+                      href={linkedImageGridItem.link}
+                    >
                       {linkedImageGridItem.linkText}
                     </a>
                   </Link>

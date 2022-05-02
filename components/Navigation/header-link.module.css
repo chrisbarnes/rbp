@@ -2,6 +2,10 @@
   @apply px-2 lg:px-4 py-1 no-underline bg-no-repeat relative;
 }
 
+.header-link:focus {
+  @apply outline-2 outline-plum outline;
+}
+
 .header-link-active {
   @apply before:absolute before:bg-no-repeat before:bg-center before:bg-[url('/images/horizontal-dots-green.svg')] before:bg-cover before:w-10 before:h-0.5 before:bottom-0 before:left-6;
 }

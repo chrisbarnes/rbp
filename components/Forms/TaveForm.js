@@ -47,12 +47,24 @@ export const TaveForm = ({ youtubeVideoId }) => {
           value: "",
         },
         {
+          name: "Extended Family Portraits",
+          value: "Extended Family Portraits",
+        },
+        {
           name: "Family Portrait",
           value: "Family Portrait",
         },
         {
           name: "Maternity",
           value: "Maternity",
+        },
+        {
+          name: "Newborn",
+          value: "Newborn",
+        },
+        {
+          name: "Other",
+          value: "Other",
         },
       ],
       modifier: 2,

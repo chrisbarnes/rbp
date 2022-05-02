@@ -8,6 +8,7 @@ const mapFormDataToTave = (formData) => {
     Source: formData.leadSource ? formData.leadSource : null,
     JobType: formData.shootType ? formData.shootType : null,
     EventDate: formData.date ? formData.date : null,
+    Message: formData.message ? formData.message : null,
   };
 };
 
