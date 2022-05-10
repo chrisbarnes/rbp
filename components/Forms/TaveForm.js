@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Form } from "./Form";
 import { YouTubeVideo } from "../Video/YouTubeVideo";
 import { CalendlyLink } from "../Button/CalendlyLink";
+import { event } from "../../lib/gtag";
 
 export const TaveForm = ({ youtubeVideoId }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -147,6 +148,9 @@ export const TaveForm = ({ youtubeVideoId }) => {
   useEffect(() => {
     if (isSubmissionComplete) {
       thankYouRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+
+      // Log GA event
+      event({ action: "generate_lead", category: "engagement", label: "Lead Submission" });
     }
   }, [isSubmissionComplete]);
 
