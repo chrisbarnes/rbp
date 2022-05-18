@@ -9,7 +9,12 @@ const moduleExports = {
   swcMinify: false,
   reactStrictMode: true,
   images: {
-    domains: ["images.ctfassets.net", "scontent-lga3-1.cdninstagram.com", "scontent-atl3-2.cdninstagram.com"],
+    domains: [
+      "images.ctfassets.net",
+      "scontent-lga3-1.cdninstagram.com",
+      "scontent-atl3-2.cdninstagram.com",
+      "content-ort2-1.cdninstagram.com",
+    ],
   },
   async redirects() {
     return [
