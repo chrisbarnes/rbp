@@ -13,7 +13,7 @@ const moduleExports = {
       "images.ctfassets.net",
       "scontent-lga3-1.cdninstagram.com",
       "scontent-atl3-2.cdninstagram.com",
-      "content-ort2-1.cdninstagram.com",
+      "scontent-ort2-1.cdninstagram.com",
       "scontent-iad3-1.cdninstagram.com",
     ],
   },
