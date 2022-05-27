@@ -15,6 +15,7 @@ const moduleExports = {
       "scontent-atl3-2.cdninstagram.com",
       "scontent-ort2-1.cdninstagram.com",
       "scontent-iad3-1.cdninstagram.com",
+      "scontent-msp1-1.cdninstagram.com",
     ],
   },
   async redirects() {
