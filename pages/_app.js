@@ -44,6 +44,22 @@ function MyApp({ Component, pageProps }) {
           `,
         }}
       />
+      <Script
+        id="mouseflow"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+        window._mfq = window._mfq || [];
+  (function() {
+    var mf = document.createElement("script");
+    mf.type = "text/javascript"; mf.defer = true;
+    mf.src = "//cdn.mouseflow.com/projects/0e3076b4-c313-4c61-82a5-a2d5f31b3580.js";
+    document.getElementsByTagName("head")[0].appendChild(mf);
+  })();
+      `,
+        }}
+      />
+
       <NextNProgress />
       <Component {...pageProps} />
     </>
