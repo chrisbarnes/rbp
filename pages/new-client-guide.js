@@ -68,6 +68,25 @@ export default function NewClientGuidePage({ page, navigation, preview }) {
             </div>
           )}
 
+          <SectionIntro heading={page?.fields?.processHeading} headingType="h2">
+            {documentToReactComponents(page?.fields?.processDescription)}
+          </SectionIntro>
+
+          <Process
+            steps={steps}
+            footerDescription={page?.fields?.processFooterMessage}
+            isFooterCtaCalendarLink={page?.fields?.isProcessFooterCtaLinkToCalendar}
+            footerCtaText={page?.fields?.processFooterCallToActionText}
+            footerCtaLink={`/${page?.fields?.processFooterCallToActionLink?.fields?.slug}`}
+          />
+
+          {page?.fields?.clientQuote?.fields?.quote && (
+            <PullQuote
+              author={page?.fields?.clientQuote?.fields?.author}
+              quote={page?.fields?.clientQuote?.fields?.quote}
+            />
+          )}
+
           <SectionIntro heading={page?.fields?.secondaryContentHeading} headingType="h2">
             {documentToReactComponents(page?.fields?.secondaryContent)}
           </SectionIntro>
@@ -95,25 +114,6 @@ export default function NewClientGuidePage({ page, navigation, preview }) {
           </SplitSection>
 
           {products && products.length && <Products products={products} />}
-
-          {page?.fields?.clientQuote?.fields?.quote && (
-            <PullQuote
-              author={page?.fields?.clientQuote?.fields?.author}
-              quote={page?.fields?.clientQuote?.fields?.quote}
-            />
-          )}
-
-          <SectionIntro heading={page?.fields?.processHeading} headingType="h2">
-            {documentToReactComponents(page?.fields?.processDescription)}
-          </SectionIntro>
-
-          <Process
-            steps={steps}
-            footerDescription={page?.fields?.processFooterMessage}
-            isFooterCtaCalendarLink={page?.fields?.isProcessFooterCtaLinkToCalendar}
-            footerCtaText={page?.fields?.processFooterCallToActionText}
-            footerCtaLink={`/${page?.fields?.processFooterCallToActionLink?.fields?.slug}`}
-          />
         </>
       )}
     </Layout>
