@@ -8,6 +8,7 @@ import { SplitSection } from "../components/Typography/SplitSection";
 import { ContentfulRichText } from "../components/Typography/ContentfulRichText";
 import { Products } from "../components/Products/Products";
 import { Process } from "../components/Typography/Process";
+import { FooterBlock } from '../components/Typography/FooterBlock';
 
 export default function NewClientGuidePage({ page, navigation, preview }) {
   const mainContentImages = page?.fields?.mainContentImages.map((image) => ({
@@ -72,13 +73,7 @@ export default function NewClientGuidePage({ page, navigation, preview }) {
             {documentToReactComponents(page?.fields?.processDescription)}
           </SectionIntro>
 
-          <Process
-            steps={steps}
-            footerDescription={page?.fields?.processFooterMessage}
-            isFooterCtaCalendarLink={page?.fields?.isProcessFooterCtaLinkToCalendar}
-            footerCtaText={page?.fields?.processFooterCallToActionText}
-            footerCtaLink={`/${page?.fields?.processFooterCallToActionLink?.fields?.slug}`}
-          />
+          <Process steps={steps} />
 
           {page?.fields?.clientQuote?.fields?.quote && (
             <PullQuote
@@ -114,6 +109,13 @@ export default function NewClientGuidePage({ page, navigation, preview }) {
           </SplitSection>
 
           {products && products.length && <Products products={products} />}
+
+          <FooterBlock
+            footerDescription={page?.fields?.processFooterMessage}
+            isFooterCtaCalendarLink={page?.fields?.isProcessFooterCtaLinkToCalendar}
+            footerCtaText={page?.fields?.processFooterCallToActionText}
+            footerCtaLink={`/${page?.fields?.processFooterCallToActionLink?.fields?.slug}`}
+          />
         </>
       )}
     </Layout>
