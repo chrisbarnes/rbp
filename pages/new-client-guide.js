@@ -8,6 +8,7 @@ import { SplitSection } from "../components/Typography/SplitSection";
 import { ContentfulRichText } from "../components/Typography/ContentfulRichText";
 import { Products } from "../components/Products/Products";
 import { Process } from "../components/Typography/Process";
+import { FooterBlock } from '../components/Typography/FooterBlock';
 
 export default function NewClientGuidePage({ page, navigation, preview }) {
   const mainContentImages = page?.fields?.mainContentImages.map((image) => ({
@@ -68,6 +69,19 @@ export default function NewClientGuidePage({ page, navigation, preview }) {
             </div>
           )}
 
+          <SectionIntro heading={page?.fields?.processHeading} headingType="h2">
+            {documentToReactComponents(page?.fields?.processDescription)}
+          </SectionIntro>
+
+          <Process steps={steps} />
+
+          {page?.fields?.clientQuote?.fields?.quote && (
+            <PullQuote
+              author={page?.fields?.clientQuote?.fields?.author}
+              quote={page?.fields?.clientQuote?.fields?.quote}
+            />
+          )}
+
           <SectionIntro heading={page?.fields?.secondaryContentHeading} headingType="h2">
             {documentToReactComponents(page?.fields?.secondaryContent)}
           </SectionIntro>
@@ -96,19 +110,7 @@ export default function NewClientGuidePage({ page, navigation, preview }) {
 
           {products && products.length && <Products products={products} />}
 
-          {page?.fields?.clientQuote?.fields?.quote && (
-            <PullQuote
-              author={page?.fields?.clientQuote?.fields?.author}
-              quote={page?.fields?.clientQuote?.fields?.quote}
-            />
-          )}
-
-          <SectionIntro heading={page?.fields?.processHeading} headingType="h2">
-            {documentToReactComponents(page?.fields?.processDescription)}
-          </SectionIntro>
-
-          <Process
-            steps={steps}
+          <FooterBlock
             footerDescription={page?.fields?.processFooterMessage}
             isFooterCtaCalendarLink={page?.fields?.isProcessFooterCtaLinkToCalendar}
             footerCtaText={page?.fields?.processFooterCallToActionText}
