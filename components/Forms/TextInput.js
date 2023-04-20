@@ -4,24 +4,32 @@ import { FieldContainer } from "./FieldContainer";
 import { FieldLabel } from "./FieldLabel";
 import { FieldError } from "./FieldError";
 
-export const TextInput = React.forwardRef((props, ref) => {
-  return (
-    <FieldContainer type={props.type} isError={props.errors[props.id]} modifier={props.modifier}>
-      <FieldLabel id={props.id} text={props.label} />
-      <input
-        className="focus:outline-none text-darkerBlue text-left text-xl font-serif w-full bg-transparent"
-        id={props.id}
-        type={props.type.toLowerCase()}
-        ref={ref}
-        aria-invalid={props.errors[props.id] ? true : false}
-        {...props}
-      />
-      {props.errors[props.id] && (
-        <FieldError error={props.errors[props.id]} customMessage={props.customValidationMessage} />
-      )}
-    </FieldContainer>
-  );
-});
+export const TextInput = React.forwardRef(
+  (
+    { type, errors, id, modifier, label, customValidationMessage, ...rest },
+    ref
+  ) => {
+    return (
+      <FieldContainer type={type} isError={errors[id]} modifier={modifier}>
+        <FieldLabel id={id} text={label} />
+        <input
+          className="focus:outline-none text-darkerBlue text-left text-xl font-serif w-full bg-transparent"
+          id={id}
+          type={type.toLowerCase()}
+          ref={ref}
+          aria-invalid={errors[id] ? true : false}
+          {...rest}
+        />
+        {errors[id] && (
+          <FieldError
+            error={errors[id]}
+            customMessage={customValidationMessage}
+          />
+        )}
+      </FieldContainer>
+    );
+  }
+);
 
 TextInput.propTypes = {
   isError: PropTypes.bool,
