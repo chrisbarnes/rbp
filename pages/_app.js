@@ -54,6 +54,7 @@ function MyApp({ Component, pageProps }) {
             gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
               page_path: window.location.pathname,
             });
+            gtag('config', '${process.env.NEXT_PUBLIC_GADS_ID}');
           `,
         }}
       />
