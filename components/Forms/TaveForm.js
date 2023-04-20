@@ -147,23 +147,38 @@ export const TaveForm = ({ youtubeVideoId }) => {
 
   useEffect(() => {
     if (isSubmissionComplete) {
-      thankYouRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+      thankYouRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
 
       // Log GA event
-      event({ action: "generate_lead", category: "engagement", label: "Lead Submission" });
+      event({
+        action: "generate_lead",
+        category: "engagement",
+        label: "Lead Submission",
+      });
+
+      // Tag for Google Ads Conversion
+      gtag_report_conversion();
     }
   }, [isSubmissionComplete]);
 
   return (
     <div>
       {!isSubmissionComplete && (
-        <Form fields={leadFields} id="taveForm" isLoading={isLoading} onFormSubmit={(data) => submitTaveLead(data)} />
+        <Form
+          fields={leadFields}
+          id="taveForm"
+          isLoading={isLoading}
+          onFormSubmit={(data) => submitTaveLead(data)}
+        />
       )}
 
       {isError && (
         <p className="font-sans text-darkPurple text-2xl leading-9 text-center max-w-xl mx-auto mb-14">
-          Sorry. There was an error submitting your inquiry. Please try again or give us a call at - 215-278-9181 - to
-          set up a time to talk.
+          Sorry. There was an error submitting your inquiry. Please try again or
+          give us a call at - 215-278-9181 - to set up a time to talk.
         </p>
       )}
 
