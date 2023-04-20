@@ -1,3 +1,4 @@
+import Script from "next/script";
 import { Layout } from "../components/Layout/Layout";
 import { TaveForm } from "../components/Forms/TaveForm";
 import { getPageNavigation, getPageBySlug } from "../lib/api";
@@ -17,6 +18,15 @@ export default function ContactPage({ page, navigation, preview }) {
         title: page?.fields?.heroImage?.fields?.title,
       }}
     >
+      <Script
+        id="google-ads"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+          function gtag_report_conversion(url) { var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } }; gtag('event', 'conversion', { 'send_to': '${process.env.NEXT_PUBLIC_GADS_ID}/uYWxCJWBqOMDEIfWipsD', 'event_callback': callback }); return false; }
+          `,
+        }}
+      />
       {page && (
         <>
           <SectionIntro heading={page?.fields?.title} headingType="h1">
