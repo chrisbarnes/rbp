@@ -10,11 +10,19 @@ export const FooterLinks = ({ links }) => {
               {link.text}
             </a>
           </Link>{" "}
-          <span className={`${index === links.length - 1 ? "hidden lg:inline" : ""}`}>|</span>
+          <span
+            className={`${
+              index === links.length - 1 ? "hidden lg:inline" : ""
+            }`}
+          >
+            |
+          </span>
         </li>
       ))}
       <li className="basis-full lg:basis-auto text-center">
-        <span className="px-2 py-1 uppercase text-xs">&copy;2022 Rae Barnes Photography</span>{" "}
+        <span className="px-2 py-1 uppercase text-xs">
+          &copy;{`${new Date().getFullYear()}`} Rae Barnes Photography
+        </span>{" "}
         <span className="hidden lg:inline">|</span>
       </li>
       <li className="px-2 py-1 uppercase text-xs basis-full lg:basis-auto text-center">
